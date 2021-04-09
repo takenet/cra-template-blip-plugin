@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page header component should matches with snapshot 1`] = `
+<div
+  class="flex flex-row items-center-ns justify-between w-100 pv3 mt2 bb bp-bc-neutral-medium-wave"
+>
+  <div
+    class="flex items-center"
+  >
+    <div
+      data-testid="page-header-icon"
+    >
+      <bds-icon
+        color="#505F79"
+        name="plugin"
+      />
+    </div>
+    <h2
+      class="f3 ml2 mr1 bp-c-neutral-dark-city"
+    >
+      Plugins
+    </h2>
+    <div
+      class="pointer"
+      data-testid="page-header-tooltip"
+    >
+      <bds-tooltip
+        position="right-center"
+        tooltip-text="Tooltip Text Info"
+      >
+        <bds-icon
+          color="#8CA0B3"
+          name="info"
+          theme="solid"
+        />
+      </bds-tooltip>
+    </div>
+  </div>
+  <div
+    class="flex items-center justify-end"
+  >
+    Hello Element
+  </div>
+</div>
+`;

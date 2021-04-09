@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should matches with snapshot 1`] = `
+<bds-button
+  aria-label="bds-button"
+  arrow="false"
+  data-testid="bds-button"
+  disabled="false"
+  icon="upload"
+  variant="ghost"
+>
+  Adicionar Plugin
+</bds-button>
+`;

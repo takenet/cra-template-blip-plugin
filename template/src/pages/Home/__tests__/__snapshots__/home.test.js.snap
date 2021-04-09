@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page should matches with snapshot 1`] = `
+<div
+  class="ph1 ph4-m ph5-ns pb5"
+>
+  <div
+    class="flex flex-row items-center-ns justify-between w-100 pv3 mt2 bb bp-bc-neutral-medium-wave"
+  >
+    <div
+      class="flex items-center"
+    >
+      <div
+        data-testid="page-header-icon"
+      >
+        <bds-icon
+          color="#505F79"
+          name="plugin"
+        />
+      </div>
+      <h2
+        class="f3 ml2 mr1 bp-c-neutral-dark-city"
+      >
+        Plugins Template
+      </h2>
+    </div>
+    <div
+      class="flex items-center justify-end"
+    >
+      <div
+        class="ml3"
+      >
+        <bds-button
+          aria-label="bds-button"
+          data-testid="my-plugin-button"
+          icon="link"
+          variant="ghost"
+        >
+          Visit the Repository
+        </bds-button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="flex flex-column items-center justify-center bp-c-neutral-dark-city f5 h-100 mt5"
+  >
+    <img
+      alt="logo"
+      class="App-logo"
+      src="blip-balloon.svg"
+    />
+    <p
+      class="tc"
+    >
+      This is a basic plugin template.
+      <br />
+      Edit 
+      <code>
+        src/pages/Home.js
+      </code>
+       and save to reload.
+    </p>
+  </div>
+</div>
+`;

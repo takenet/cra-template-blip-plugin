@@ -1,0 +1,47 @@
+{
+    "extends": [
+        "airbnb-base",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "react-app"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "es6": true,
+        "jest": true,
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "no-console": "warn",
+        "no-var": "error",
+        "no-extra-boolean-cast": "off",
+        "no-underscore-dangle": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
+        "camelcase": "off",
+        "class-methods-use-this": "off",
+        "radix": "off",
+        "consistent-return": "off",
+        "import/prefer-default-export": "off",
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "never"],
+        "curly": ["error", "all"],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "paths": ["src"]
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import 'tachyons';
+@import '~blip-ds/dist/collection/styles/_fonts.scss';
+@import '~blip-ds/dist/collection/styles/_colors.scss';
+
+@mixin register-base-color($name, $value) {
+    .bp-c-#{$name} {
+      color: $value;
+    }
+  
+    .bp-bc-#{$name} {
+      border-color: $value;
+    }
+  
+    .bp-bg-#{$name} {
+      background-color: $value;
+    }
+}
+
+// check blip-ds list of colors
+// https://takenet.github.io/blip-ds/?path=/story/colors--all-colors
+@include register-base-color('neutral-dark-city', $color-neutral-dark-city);
+@include register-base-color('neutral-medium-wave', $color-neutral-medium-wave);
+
+body {
+    margin: 0;
+    font-family: $font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.App-logo {
+    height: 10rem;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: Heartbit infinite 4s linear;
+    }
+}
+
+@keyframes Heartbit {
+    50% {
+        -webkit-transform: scale(0.5);
+        opacity: 0.3;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
