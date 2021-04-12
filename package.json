@@ -1,12 +1,11 @@
 {
     "name": "cra-template-blip-plugin",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "keywords": [
         "blip",
         "plugin",
-        "react",
-        "create-react-app",
-        "template"
+        "template",
+        "react"
     ],
     "description": "React's template for Blip plugin.",
     "repository": {
