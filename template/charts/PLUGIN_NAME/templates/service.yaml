@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  name: {{ template "PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
   labels:
-    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
-    chart: {{ template "take-plugin-PLUGIN_NAME.chart" . }}
+    app: {{ template "PLUGIN_NAME.name" . }}
+    chart: {{ template "PLUGIN_NAME.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+    app: {{ template "PLUGIN_NAME.name" . }}
     release: {{ .Release.Name }}

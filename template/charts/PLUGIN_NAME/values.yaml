@@ -1,9 +1,9 @@
-# Default values for take-plugin-PLUGIN_NAME.
+# Default values for PLUGIN_NAME.
 # Declare variables to be passed into your templates.
-fullnameOverride: take-plugin-PLUGIN_NAME
+fullnameOverride: PLUGIN_NAME
 replicaCount: 1
 image:
-    repository: take-plugin-PLUGIN_NAME
+    repository: PLUGIN_NAME
     tag: #{Build.BuildId}#
     pullPolicy: IfNotPresent
     imagePullSecretName: acr-takeprivate-secret
@@ -43,7 +43,7 @@ environment:
     stage: staging
 
 appSettings:
-    configMap: take-plugin-PLUGIN_NAME
+    configMap: PLUGIN_NAME
     path: /app/src/config/appsettings.json
     subPath: appsettings.json
 

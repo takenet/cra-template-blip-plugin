@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  name: {{ template "PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
   labels:
-    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
-    chart: {{ template "take-plugin-PLUGIN_NAME.chart" . }}
+    app: {{ template "PLUGIN_NAME.name" . }}
+    chart: {{ template "PLUGIN_NAME.chart" . }}
     draft: {{ default "draft-app" .Values.draft }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -17,12 +17,12 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+      app: {{ template "PLUGIN_NAME.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+        app: {{ template "PLUGIN_NAME.name" . }}
         draft: {{ default "draft-app" .Values.draft }}
         release: {{ .Release.Name }}
         team: {{ .Values.team }}
@@ -66,7 +66,7 @@ spec:
             - name: {{ $ref }}_{{ $key }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "take-plugin-PLUGIN_NAME.fullname" $root }}-{{ $ref | lower }}
+                  name: {{ template "PLUGIN_NAME.fullname" $root }}-{{ $ref | lower }}
                   key: {{ $key }}
             {{- end }}
             {{- end }}

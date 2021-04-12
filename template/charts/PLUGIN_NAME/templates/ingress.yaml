@@ -1,12 +1,12 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "take-plugin-PLUGIN_NAME.fullname" . -}}
+{{- $fullName := include "PLUGIN_NAME.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  name: {{ template "PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
   labels:
-    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
-    chart: {{ template "take-plugin-PLUGIN_NAME.chart" . }}
+    app: {{ template "PLUGIN_NAME.name" . }}
+    chart: {{ template "PLUGIN_NAME.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}
@@ -22,7 +22,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+              serviceName: {{ template "PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
               servicePort: http
   tls: 
     - secretName: {{ .Values.ingress.tls.secretName }}

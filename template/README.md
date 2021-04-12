@@ -20,7 +20,7 @@ yarn create react-app PROJECT_NAME --template blip-plugin
 ```bash
 cd PROJECT_NAME
 ```
-Configure `./charts` according your plugin project. Replace `take-plugin-PLUGIN_NAME` with the correct plugin name.
+> Configure `./charts` according your plugin project. Replace `PLUGIN_NAME` with the correct plugin name.
 
 3. Run the project:
 
@@ -129,13 +129,6 @@ Check if user has some permission.
     customShortName?: string
 }
 ```
+## More information
 
-**`GetPermissionsObject`**
-
-Get the entire permission object.
-
-[blip](https://blip.ai)
-
-[blip-ds](https://github.com/takenet/blip-ds)
-
-[iframe-message](https://github.com/takenet/iframe-message-proxy)
+[blip](https://blip.ai) &nbsp;&nbsp; [blip-ds](https://github.com/takenet/blip-ds) &nbsp;&nbsp; [iframe-message](https://github.com/takenet/iframe-message-proxy)
