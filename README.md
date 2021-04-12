@@ -21,6 +21,8 @@ Then, access and run the project.
 ```bash
 cd PROJECT_NAME
 ```
+Configure `./charts` according your plugin project. Replace `take-plugin-PLUGIN_NAME` with the correct plugin name.
+
 ```bash
 npm start
 
@@ -33,8 +35,4 @@ Now just add the plugin to your chatbot and enjoy!
 
 ## More information
 
-[blip](https://blip.ai)
-
-[blip-ds](https://github.com/takenet/blip-ds)
-
-[iframe-message](https://github.com/takenet/iframe-message-proxy)
+[blip](https://blip.ai) [blip-ds](https://github.com/takenet/blip-ds)   [iframe-message](https://github.com/takenet/iframe-message-proxy)

@@ -1,0 +1,57 @@
+# Default values for take-plugin-PLUGIN_NAME.
+# Declare variables to be passed into your templates.
+fullnameOverride: take-plugin-PLUGIN_NAME
+replicaCount: 1
+image:
+    repository: take-plugin-PLUGIN_NAME
+    tag: #{Build.BuildId}#
+    pullPolicy: IfNotPresent
+    imagePullSecretName: acr-takeprivate-secret
+imagePullSecrets: []
+service:
+    type: ClusterIP
+    port: 80
+
+probes:
+    enabled: false
+
+ingress:
+    enabled: true
+    whitelist:
+        ranges:
+    annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/proxy-body-size: '0'
+    hostName: hostName
+    tls:
+        secretName: secretName
+secrets: {}
+resources:
+    limits:
+        cpu: cpuLimit
+        memory: memoryLimit
+    requests:
+        cpu: cpuRequests
+        memory: memoryRequests
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+environment:
+    stage: staging
+
+appSettings:
+    configMap: take-plugin-PLUGIN_NAME
+    path: /app/src/config/appsettings.json
+    subPath: appsettings.json
+
+autoscale:
+    minReplicas: minReplicas
+    maxReplicas: maxReplicas
+    averageCPUUtilization: averageCpuUtilization
+
+team: zeus
+
+annotations: {}

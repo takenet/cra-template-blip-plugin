@@ -1,4 +1,4 @@
-[![Blip-plugin](https://imgur.com/B8dPNgk.png "Blip-plugin")][blip]
+![Blip-plugin](https://imgur.com/B8dPNgk.png "Blip-plugin")
 
 # BLiP plugin
 
@@ -20,6 +20,7 @@ yarn create react-app PROJECT_NAME --template blip-plugin
 ```bash
 cd PROJECT_NAME
 ```
+Configure `./charts` according your plugin project. Replace `take-plugin-PLUGIN_NAME` with the correct plugin name.
 
 3. Run the project:
 
