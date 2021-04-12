@@ -72,7 +72,22 @@
             ]
         },
         "babel": {
-            "presets": ["react-app"]
+            "presets": ["react-app"],
+            "env": {
+                "production": {
+                    "plugins": [
+                        [
+                            "react-remove-properties",
+                            {
+                                "properties": [
+                                    "data-test",
+                                    "data-testid"
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            }
         },
         "eslintConfig": {
             "extends": ["react-app", "react-app/jest"]
@@ -90,6 +105,7 @@
             "@testing-library/jest-dom": "^5.11.10",
             "@testing-library/react": "^11.2.6",
             "@testing-library/user-event": "^13.1.1",
+            "babel-plugin-react-remove-properties": "^0.3.0",
             "eslint": "^7.23.0",
             "eslint-config-airbnb": "^18.2.1",
             "eslint-config-airbnb-base": "^14.2.1",
