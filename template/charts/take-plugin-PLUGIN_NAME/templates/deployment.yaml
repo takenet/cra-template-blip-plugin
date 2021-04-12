@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  labels:
+    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+    chart: {{ template "take-plugin-PLUGIN_NAME.chart" . }}
+    draft: {{ default "draft-app" .Values.draft }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    team: {{ .Values.team }}
+  {{- with .Values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+        draft: {{ default "draft-app" .Values.draft }}
+        release: {{ .Release.Name }}
+        team: {{ .Values.team }}
+      {{- with .Values.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.imagePullSecretName }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: config
+            mountPath: {{ .Values.appSettings.path }}
+            subPath: {{ .Values.appSettings.subPath }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if .Values.probes.enabled }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          {{- end }}
+          env:
+            {{- $root := . }}
+            {{- range $ref, $values := .Values.secrets }}
+            {{- range $key, $value := $values }}
+            - name: {{ $ref }}_{{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "take-plugin-PLUGIN_NAME.fullname" $root }}-{{ $ref | lower }}
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+      volumes: 
+      - name: config
+        configMap:
+          name: {{ .Values.appSettings.configMap }}

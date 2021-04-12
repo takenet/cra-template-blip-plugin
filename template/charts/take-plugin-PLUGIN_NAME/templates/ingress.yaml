@@ -1,0 +1,31 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "take-plugin-PLUGIN_NAME.fullname" . -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  labels:
+    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+    chart: {{ template "take-plugin-PLUGIN_NAME.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+{{- if .Values.ingress.whitelist.ranges -}}
+    nginx.ingress.kubernetes.io/whitelist-source-range: {{ .Values.ingress.whitelist.ranges }}
+{{- end }}
+spec:
+  rules:
+    - host: {{ .Values.ingress.hostName }}
+      http:
+        paths:
+          - backend:
+              serviceName: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+              servicePort: http
+  tls: 
+    - secretName: {{ .Values.ingress.tls.secretName }}
+      hosts:
+        - {{ .Values.ingress.hostName }}
+{{- end }}

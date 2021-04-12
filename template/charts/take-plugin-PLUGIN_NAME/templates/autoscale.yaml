@@ -1,0 +1,25 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  labels:
+    app: {{ template "take-plugin-PLUGIN_NAME.name" . }}
+    chart: {{ template "take-plugin-PLUGIN_NAME.chart" . }}
+    draft: {{ default "draft-app" .Values.draft }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    team: {{ .Values.team }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ template "take-plugin-PLUGIN_NAME.fullname" . }}-{{ .Values.environment.stage }}
+  minReplicas: {{ .Values.autoscale.minReplicas }}
+  maxReplicas: {{ .Values.autoscale.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscale.averageCPUUtilization }}
