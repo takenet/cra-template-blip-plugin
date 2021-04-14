@@ -1,4 +1,4 @@
-![Blip-plugin](https://imgur.com/B8dPNgk.png "Blip-plugin")
+[![Blip-plugin](https://imgur.com/B8dPNgk.png "Blip-plugin")][blip]
 
 # BLiP plugin
 
@@ -129,6 +129,11 @@ Check if user has some permission.
     customShortName?: string
 }
 ```
-## More information
 
-[blip](https://blip.ai) &nbsp;&nbsp; [blip-ds](https://github.com/takenet/blip-ds) &nbsp;&nbsp; [iframe-message](https://github.com/takenet/iframe-message-proxy)
+**`GetPermissionsObject`**
+
+Get the entire permission object.
+
+[blip]: https://blip.ai
+[iframe-message]: https://github.com/takenet/iframe-message-proxy
+[blip-toolkit]: https://www.npmjs.com/package/blip-toolkit
