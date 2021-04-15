@@ -1,6 +1,6 @@
 const path_to_look_up = './charts/**/*';
 const name_to_change = 'PLUGIN_NAME';
-const regex = new RegExp(`./charts/${name_to_change}`, 'g');
+const regex = new RegExp(`${name_to_change}`, 'g');
 
 const current_path = `./charts/${name_to_change}`;
 const new_path = `./charts/${process.env.REACT_APP_NAME}`;

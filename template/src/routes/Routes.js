@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as RoutesPath from '../config/constants/routes-path';
 
 import HomePage from '../pages/Home';
+import ExamplePage from '../pages/Example';
 
 import Analytics from './Analytics';
 
@@ -11,6 +12,11 @@ const Routes = () => (
         <Analytics>
             <Switch>
                 <Route exact path={RoutesPath.home.path} component={HomePage} />
+                <Route
+                    exact
+                    path={RoutesPath.example_page.path}
+                    component={ExamplePage}
+                />
             </Switch>
         </Analytics>
     </BrowserRouter>

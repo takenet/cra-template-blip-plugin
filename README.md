@@ -109,15 +109,17 @@ Access the project folder.
 ```bash
 cd PROJECT_NAME
 ```
+
 > Configure `./charts` according your project. Replace `PLUGIN_NAME` with the correct plugin name.
 
 ```bash
-npm config:charts
+npm run config:charts
 
 #or
 
 yarn config:charts
 ```
+
 Then, run the project.
 
 ```bash
@@ -129,6 +131,9 @@ yarn start
 ```
 
 Now just add the plugin to your chatbot and enjoy!
+
+## More information
+[Blip plugin template](https://github.com/axeldouglas/cra-template-blip-plugin/tree/main/template)
 
 [npm-badge]: https://img.shields.io/npm/v/cra-template-blip-plugin.svg
 [npm-url]: https://www.npmjs.com/package/cra-template-blip-plugin

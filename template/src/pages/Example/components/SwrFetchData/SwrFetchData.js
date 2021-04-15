@@ -1,0 +1,108 @@
+import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import ConnectTo from '../../../../store/connect';
+import useFetch from '../../../../hooks/useFetch';
+import Card from '../../../../components/Card';
+import Header from '../Header';
+
+import env from '../../../../config';
+
+const SwrFetchData = ({ onClick }) => {
+    const [id, setId] = useState(1);
+    const { data } = useFetch(`/pokemon/${id}`);
+
+    useEffect(() => {
+        handleGetPokemon();
+        // eslint-disable-next-line
+    }, []);
+
+    const handleGetPokemon = useCallback(() => {
+        const pokemon_id = getRandomIntInclusive(1, 151);
+        setId(pokemon_id);
+    }, []);
+
+    const getRandomIntInclusive = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    const getImage = (sprites) => {
+        if (
+            !Object.keys(sprites).length ||
+            !Object.keys(sprites.other).length ||
+            !Object.keys(sprites.other.dream_world).length
+        ) {
+            return env.default_plugin_image;
+        }
+        const image = sprites.other.dream_world.front_default;
+        return image;
+    };
+
+    const getType = (types) => {
+        if (!types.length) {
+            return '-';
+        }
+        const type = types[0].type.name;
+        return type;
+    };
+
+    return (
+        <div className="ph1 ph4-m ph5-ns pb5">
+            <Header
+                title="Voltar"
+                canRefresh={true}
+                onRefresh={() => handleGetPokemon()}
+                onClick={onClick}
+            />
+            {!!data && (
+                <div className="mw5 center mv3">
+                    <Card className="min-h-18">
+                        <div className="flex flex-column items-center justify-center">
+                            <img
+                                src={getImage(data.sprites)}
+                                className="br-100 h4 w4 dib ba b--black-05 pa1 bg-black-05"
+                                title={data.name}
+                                alt={data.name}
+                            />
+                            <h1 className="f3 mb2 ttc">{data.name}</h1>
+                            <h2 className="f5 fw4 gray mt0">
+                                #{`${data.id}`.padStart(3, '0')}
+                            </h2>
+                            <div className="w-100 flex justify-around">
+                                <div className="flex flex-column tc">
+                                    <p className="f5 mb2 ttc">
+                                        {getType(data.types)}
+                                    </p>
+                                    <p className="f7 gray mt0">Type</p>
+                                </div>
+                                <div className="flex flex-column tc">
+                                    <p className="f5 mb2">
+                                        {(data.weight / 10).toFixed(1)}kg
+                                    </p>
+                                    <p className="f7 gray mt0">Weight</p>
+                                </div>
+                                <div className="flex flex-column tc">
+                                    <p className="f5 mb2">
+                                        {(data.height / 10).toFixed(1)}m
+                                    </p>
+                                    <p className="f7 gray mt0">Height</p>
+                                </div>
+                            </div>
+                        </div>
+                    </Card>
+                </div>
+            )}
+        </div>
+    );
+};
+
+SwrFetchData.propTypes = {
+    onClick: PropTypes.func
+};
+
+const mapStateToProps = (state, props) => ({
+    ...props
+});
+
+export default ConnectTo(mapStateToProps)(SwrFetchData);
