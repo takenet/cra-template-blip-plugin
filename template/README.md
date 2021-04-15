@@ -12,25 +12,43 @@ This project aims to give the initial skill needed to develop and build your own
 
 ```bash
 npx create-react-app PROJECT_NAME --template blip-plugin
+
 # or
+
 yarn create react-app PROJECT_NAME --template blip-plugin
 ```
 
+> Note: `npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
+
 2. Access project folder:
+
 ```bash
 cd PROJECT_NAME
 ```
-> Configure `./charts` according your plugin project. Replace `PLUGIN_NAME` with the correct plugin name.
 
-3. Run the project:
+3. Configure `./charts` according your plugin project:
+
+```bash
+npm run config:charts
+
+#or
+
+yarn config:charts
+
+```
+> Note: This will replace `PLUGIN_NAME` with the correct project name in the charts files.
+
+4. Run the project:
 
 ```bash
 npm start
+
 #or
+
 yarn start
 ```
 
-4. Now just add the plugin to your chatbot and enjoy!
+5. Now just add the plugin to your chatbot and enjoy!
 
 ## Good to know
 
