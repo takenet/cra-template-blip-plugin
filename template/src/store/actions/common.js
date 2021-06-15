@@ -1,5 +1,10 @@
 import * as action_types from '../../config/constants/common-actions';
 
+const getLanguage = (payload) => ({
+    type: action_types.get_language,
+    payload
+});
+
 const setLanguage = (payload) => ({
     type: action_types.set_language,
     payload
@@ -10,4 +15,4 @@ const setLoading = (payload) => ({
     payload
 });
 
-export { setLanguage, setLoading };
+export { getLanguage, setLanguage, setLoading };
