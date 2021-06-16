@@ -1,0 +1,124 @@
+// check Blip Toolkit list of colors
+// http://design.blip.ai/#color
+
+$lighten-amount: 7%;
+$darken-amount: 7%;
+
+@function color-lighten($color) {
+    @return lighten($color, $lighten-amount);
+}
+
+@function color-darken($color) {
+    @return darken($color, $darken-amount);
+}
+
+// Corporate Palette
+$color-bot: #2cc3d5;
+$color-blip-light: #0cc8cc;
+$color-blip-dark: #15afb2;
+
+$corporate-palette: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$corporate-palette: map-merge(
+    (
+        'bot': $color-bot,
+        'blip-light': $color-blip-light,
+        'blip-dark': $color-blip-dark
+    ),
+    $corporate-palette
+);
+
+// Semiotic Palette
+$color-wind: #ade7ee;
+$color-smurf: #55cfff;
+$color-sea: #517bf2;
+$color-blue-jeans: #2c2a46;
+$color-true: #4dcb7b;
+$color-warning-yellow: #ffcf33;
+$color-cheetos: #f9b42f;
+$color-doritos: #f99b45;
+$color-warning-light: #fbeaea;
+$color-delete: #fb7a6d;
+$color-warning: #f76556;
+$color-watermelon: #f66689;
+
+$semiotic-palette: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$semiotic-palette: map-merge(
+    (
+        'wind': $color-wind,
+        'smurf': $color-smurf,
+        'sea': $color-sea,
+        'blue-jeans': $color-blue-jeans,
+        'true': $color-true,
+        'true-dark': color-darken($color-true),
+        'warning-yellow': $color-warning-yellow,
+        'cheetos': $color-cheetos,
+        'doritos': $color-doritos,
+        'warning-light': $color-warning-light,
+        'delete': $color-delete,
+        'delete-dark': color-darken($color-delete),
+        'warning': $color-warning,
+        'watermelon': $color-watermelon
+    ),
+    $semiotic-palette
+);
+
+// Neutral Palette
+$color-piano: #191919;
+$color-elevator: #333333;
+$color-console: #1d1d1d;
+$color-obsidian: #1a272f;
+$color-onix: #242b36;
+$color-suit: #3d4554;
+$color-city: #52636c;
+$color-desk: #607b99;
+$color-rooftop: #738192;
+$color-cloud: #8ca0b3;
+$color-silver: #94a3ab;
+$color-time: #a8bfc4;
+$color-breeze: #c9dfe4;
+$color-sky: #daf2f4;
+$color-offwhite: #eaeeee;
+$color-whisper: #f5f8f9;
+
+$neutral-palette: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$neutral-palette: map-merge(
+    (
+        'piano': $color-piano,
+        'elevator': $color-elevator,
+        'console': $color-console,
+        'obsidian': $color-obsidian,
+        'onix': $color-onix,
+        'suit': $color-suit,
+        'city': $color-city,
+        'city-dark': color-darken($color-city),
+        'city-light': color-lighten($color-city),
+        'desk': $color-desk,
+        'rooftop': $color-rooftop,
+        'cloud': $color-cloud,
+        'silver': $color-silver,
+        'time': $color-time,
+        'breeze': $color-breeze,
+        'sky': $color-sky,
+        'offwhite': $color-offwhite,
+        'whisper': $color-whisper
+    ),
+    $neutral-palette
+);
+
+// Gradients
+$bp-grad-shine: linear-gradient(180deg, #f9fbfc 0%, #ecf1f3 100%);
+$bp-grad-bot: linear-gradient(90deg, #51dbe3 0%, #28b4c3 100%);
+$bp-grad-blip: linear-gradient(
+    137.45deg,
+    #1bd6e7 0%,
+    #0fc3f8 56.17%,
+    #0abcff 100%
+);
+$bp-grad-suit: linear-gradient(90deg, #3d4554, #2f3747);
+
+$extra-colors: (
+    'transparent': transparent
+);

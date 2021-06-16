@@ -1,0 +1,57 @@
+@mixin x-small-device {
+    @media (max-width: 575px) {
+        @content;
+    }
+}
+
+@mixin small-device {
+    @media (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin medium-device {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin large-device {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin extra-large-device {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin extra-extra-large {
+    @media (min-width: 1400px) {
+        @content;
+    }
+}
+
+// ****
+// breakpoints to use with Tachyons
+// ****
+
+@mixin not-small {
+    @media (min-width: 30em) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (min-width: 30em) and (max-width: 60em) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: 60em) {
+        @content;
+    }
+}

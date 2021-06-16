@@ -1,0 +1,67 @@
+@mixin register-classname-breakpoints($selector, $declaration, $value) {
+    @include x-small-device {
+        .#{$selector}-xs {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include small-device {
+        .#{$selector}-sm {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include medium-device {
+        .#{$selector}-md {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include large-device {
+        .#{$selector}-lg {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include extra-large-device {
+        .#{$selector}-xl {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include extra-extra-large {
+        .#{$selector}-xxl {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    // ****
+    // breakpoints to use with Tachyons
+    // ****
+
+    @include large {
+        .#{$selector}-l {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include medium {
+        .#{$selector}-m {
+            #{$declaration}: #{$value};
+        }
+    }
+
+    @include not-small {
+        .#{$selector}-ns {
+            #{$declaration}: #{$value};
+        }
+    }
+}
+
+@mixin register-classname($selector, $declaration, $value) {
+    .#{$selector} {
+        #{$declaration}: #{$value};
+    }
+
+    @include register-classname-breakpoints($selector, $declaration, $value);
+}

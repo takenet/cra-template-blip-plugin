@@ -1,0 +1,29 @@
+@mixin register-hover-color($name, $value) {
+    .hover-bp-c-#{$name}:hover {
+        color: $value;
+    }
+
+    .hover-bp-bc-#{$name}:hover {
+        border-color: $value;
+    }
+
+    .hover-bp-bg-#{$name}:hover {
+        background-color: $value;
+    }
+}
+
+@mixin register-base-color($name, $value) {
+    .bp-c-#{$name} {
+        color: $value;
+    }
+
+    .bp-bc-#{$name} {
+        border-color: $value;
+    }
+
+    .bp-bg-#{$name} {
+        background-color: $value;
+    }
+
+    @include register-hover-color($name, $value);
+}

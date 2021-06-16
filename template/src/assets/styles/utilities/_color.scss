@@ -1,0 +1,21 @@
+@each $color, $value in $corporate-palette {
+    @include register-base-color($color, $value);
+}
+
+@each $color, $value in $semiotic-palette {
+    @include register-base-color($color, $value);
+}
+
+@each $color, $value in $neutral-palette {
+    @include register-base-color($color, $value);
+}
+
+@each $color, $value in $extra-colors {
+    @include register-base-color($color, $value);
+}
+
+// check blip-ds and Blip Toolkit list of colors
+// https://takenet.github.io/blip-ds/?path=/story/colors--all-colors
+// http://design.blip.ai/#color
+@include register-base-color('neutral-dark-city', $color-neutral-dark-city);
+@include register-base-color('neutral-medium-wave', $color-neutral-medium-wave);

@@ -3,24 +3,10 @@
 @import '~blip-ds/dist/collection/styles/_fonts.scss';
 @import '~blip-ds/dist/collection/styles/_colors.scss';
 
-@mixin register-base-color($name, $value) {
-    .bp-c-#{$name} {
-      color: $value;
-    }
-  
-    .bp-bc-#{$name} {
-      border-color: $value;
-    }
-  
-    .bp-bg-#{$name} {
-      background-color: $value;
-    }
-}
-
-// check blip-ds list of colors
-// https://takenet.github.io/blip-ds/?path=/story/colors--all-colors
-@include register-base-color('neutral-dark-city', $color-neutral-dark-city);
-@include register-base-color('neutral-medium-wave', $color-neutral-medium-wave);
+// plugin template scss
+@import 'variables';
+@import 'mixins';
+@import 'utilities';
 
 body {
     margin: 0;
