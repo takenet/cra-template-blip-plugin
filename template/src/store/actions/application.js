@@ -1,5 +1,10 @@
 import * as action_types from '../../config/constants/application-actions';
 
+const getApplication = (payload) => ({
+    type: action_types.get_application,
+    payload
+});
+
 const setApplication = (payload) => ({
     type: action_types.set_application,
     payload
@@ -10,4 +15,4 @@ const setConfiguration = (payload) => ({
     payload
 });
 
-export { setApplication, setConfiguration };
+export { getApplication, setApplication, setConfiguration };

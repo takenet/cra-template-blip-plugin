@@ -3,7 +3,6 @@ import { useLocation, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ConnectTo from '../../store/connect';
 
-import * as ApplicationService from '../../services/application-service';
 import { withLoading } from '../../services/common-service';
 
 import * as ApplicationActions from '../../store/actions/application';
@@ -37,16 +36,8 @@ const Example = ({ dispatch }) => {
 
     const getInitialInfo = () => {
         withLoading(async () => {
-            const app_data = await ApplicationService.getApplicationData();
-            if (!!app_data) {
-                await dispatch(ApplicationActions.setApplication(app_data));
-            }
-
-            const language = await ApplicationService.getCurrentLanguage();
-            if (!!language) {
-                await dispatch(CommonActions.setLanguage(language));
-            }
-
+            await dispatch(ApplicationActions.getApplication());
+            await dispatch(CommonActions.getLanguage());
             await sleep(DELAY_TIME);
         });
     };
