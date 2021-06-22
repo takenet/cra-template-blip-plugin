@@ -1,5 +1,5 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
-import * as IMPConstants from '../config/constants/iframe-message-proxy-container';
+import * as IMPConstants from '../constants/iframe-message-proxy-container';
 
 const startLoading = () =>
     IframeMessageProxy.sendMessage({

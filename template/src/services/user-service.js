@@ -1,5 +1,5 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
-import * as IMPContainer from '../config/constants/iframe-message-proxy-container';
+import * as IMPContainer from '../constants/iframe-message-proxy-container';
 
 const PERMISSION = 'write';
 const PERMISSION_AREA = 'team';

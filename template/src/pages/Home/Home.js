@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import ConnectTo from '../../store/connect';
-import * as RoutesPath from '../../config/constants/routes-path';
+import * as RoutesPath from '../../constants/routes-path';
 
 import logo from '../../assets/images/svg/blip-balloon.svg';
 import Header from './components/Header';

@@ -1,6 +1,6 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
-import * as IMPActions from '../config/constants/iframe-message-proxy-actions';
-import * as IMPContainer from '../config/constants/iframe-message-proxy-container';
+import * as IMPActions from '../constants/iframe-message-proxy-actions';
+import * as IMPContainer from '../constants/iframe-message-proxy-container';
 import * as env from '../config/appsettings.json';
 
 const CONFIGURATION_URL = `${env.blip.commands_url}/configuration`;

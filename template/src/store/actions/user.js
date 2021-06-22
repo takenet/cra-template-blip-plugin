@@ -1,4 +1,4 @@
-import * as action_types from '../../config/constants/user-actions';
+import * as action_types from '../../constants/user-actions';
 
 const setLoggedUser = (payload) => ({
     type: action_types.set_logged_user,
