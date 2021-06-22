@@ -5,7 +5,7 @@ import useFetch from '../../../../hooks/useFetch';
 import Card from '../../../../components/Card';
 import Header from '../Header';
 
-import env from '../../../../config';
+import settings from '../../../../config';
 
 const SwrFetchData = ({ onClick }) => {
     const [id, setId] = useState(1);
@@ -33,7 +33,7 @@ const SwrFetchData = ({ onClick }) => {
             !Object.keys(sprites.other).length ||
             !Object.keys(sprites.other.dream_world).length
         ) {
-            return env.default_plugin_image;
+            return settings.default_plugin_image;
         }
         const image = sprites.other.dream_world.front_default;
         return image;

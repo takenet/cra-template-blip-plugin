@@ -1,9 +1,9 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
 import * as IMPActions from '../constants/iframe-message-proxy-actions';
 import * as IMPContainer from '../constants/iframe-message-proxy-container';
-import * as env from '../config/appsettings.json';
+import settings from '../config';
 
-const CONFIGURATION_URL = `${env.blip.commands_url}/configuration`;
+const CONFIGURATION_URL = `${settings.blip.commands_url}/configuration`;
 const CONTACTS_PATH = `/contacts`;
 const THREADS_PATH = `/threads`;
 const POST_TYPE = 'application/json';
