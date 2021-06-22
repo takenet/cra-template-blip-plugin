@@ -1,7 +1,7 @@
 {
     "package": {
         "name": "blip-plugin-template",
-        "version": "0.1.6",
+        "version": "0.1.7",
         "author": {
             "name": "Axel Douglas Santos",
             "email": "axel.santos@take.net"
@@ -15,7 +15,6 @@
             "formik": "^2.2.6",
             "iframe-message-proxy": "^1.1.1",
             "lime-js": "^3.0.1",
-            "node-sass": "^5.0.0",
             "prop-types": "^15.7.2",
             "react": "^17.0.2",
             "react-dom": "^17.0.2",
@@ -23,6 +22,7 @@
             "react-scripts": "4.0.3",
             "replace-in-file": "^6.2.0",
             "resize-observer": "^1.0.0",
+            "sass": "^1.35.1",
             "swr": "^0.5.5",
             "tachyons": "^4.12.0",
             "yup": "^0.32.9"
@@ -31,7 +31,7 @@
             "start": "react-scripts start",
             "build": "react-scripts build",
             "eject": "react-scripts eject",
-            "config:charts": "cross-env REACT_APP_NAME=$npm_package_name node src/config/scripts/charts-config.js",
+            "config:plugin": "cross-env REACT_APP_NAME=$npm_package_name node src/config/scripts/plugin-config.js",
             "test": "jest",
             "test:watch": "npm test -- --watch",
             "test:coverage": "jest --coverage",

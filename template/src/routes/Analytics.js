@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { page } from '../services/analytics';
-import * as RoutesPath from '../config/constants/routes-path';
+import * as RoutesPath from '../constants/routes-path';
 import env from '../config';
 
 const Analytics = ({ children }) => {

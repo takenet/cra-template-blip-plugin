@@ -29,11 +29,11 @@ cd PROJECT_NAME
 3. Configure `./charts` according your plugin project:
 
 ```bash
-npm run config:charts
+npm run config:plugin
 
 #or
 
-yarn config:charts
+yarn config:plugin
 
 ```
 > Note: This will replace `PLUGIN_NAME` with the correct project name in the charts files.

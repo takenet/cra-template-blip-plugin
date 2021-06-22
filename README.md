@@ -40,15 +40,15 @@ Whatever name you choose will replace all occurrences of that string in the proj
 │   │        ├───SomeComponent.js
 │   │        └───index.js
 │   ├───📁config
-│   │   ├───📁constants
-│   │   │   ├───application-actions.js
-│   │   │   └───...
 │   │   ├───📁jest
 │   │   │   └───fileTransform.js
 │   │   ├───📁scripts
-│   │   │   └───charts-config.js
+│   │   │   └───plugin-config.js
 │   │   ├───⚙️appsettings.json
 │   │   └───index.js
+│   ├───📁constants
+│   │   ├───application-actions.js
+│   │   └───...
 │   ├───📁factory
 │   │   └───api.js
 │   ├───📁hooks
@@ -113,11 +113,11 @@ cd PROJECT_NAME
 > Configure `./charts` according your project. Replace `PLUGIN_NAME` with the correct plugin name.
 
 ```bash
-npm run config:charts
+npm run config:plugin
 
 #or
 
-yarn config:charts
+yarn config:plugin
 ```
 
 Then, run the project.

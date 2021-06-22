@@ -1,4 +1,4 @@
-import * as action_types from '../../config/constants/application-actions';
+import * as action_types from '../../constants/application-actions';
 import * as ApplicationService from '../../services/application-service';
 import * as ApplicationActions from '../actions/application';
 

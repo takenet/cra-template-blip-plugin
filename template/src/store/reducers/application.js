@@ -1,4 +1,4 @@
-import * as action_types from '../../config/constants/application-actions';
+import * as action_types from '../../constants/application-actions';
 
 const application_default = {
     application: {

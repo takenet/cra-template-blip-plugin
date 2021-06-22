@@ -1,4 +1,4 @@
-import * as action_types from '../../config/constants/common-actions';
+import * as action_types from '../../constants/common-actions';
 
 const common_default = {
     common: {

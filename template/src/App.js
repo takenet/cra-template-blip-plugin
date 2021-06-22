@@ -3,7 +3,7 @@ import Provider from './store';
 import Routes from './routes';
 import { load, identify } from './services/analytics';
 import { showToast } from './services/common-service';
-import * as BlipPortalToastTypes from './config/constants/blip-portal-toast-types';
+import * as BlipPortalToastTypes from './constants/blip-portal-toast-types';
 
 const App = () => {
     // segment analytics
