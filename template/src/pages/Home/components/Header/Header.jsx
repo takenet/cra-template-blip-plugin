@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import PageHeader from '../../../../components/PageHeader';
 import Button from '../../../../components/Button';
 
 const Header = ({ title, icon, onClick = () => {} }) => {
+    const { t } = useTranslation();
+
     const renderOptions = () => (
         <>
             <div className="ml3">
                 <Button
-                    text="Visit the Repository"
+                    text={t('button.repository')}
                     icon="link"
                     variant="ghost"
                     onClick={() => onClick()}
-                    data_testid="my-plugin-button"
+                    data_testid="repository-link"
                 />
             </div>
         </>
