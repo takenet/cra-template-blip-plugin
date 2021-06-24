@@ -1,13 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import ConnectTo from '../../../../store/connect';
+import { useTranslation } from 'react-i18next';
+
+import settings from '../../../../config';
 import useFetch from '../../../../hooks/useFetch';
+
 import Card from '../../../../components/Card';
 import Header from '../Header';
 
-import settings from '../../../../config';
-
 const SwrFetchData = ({ onClick }) => {
+    const { t } = useTranslation();
+
     const [id, setId] = useState(1);
     const { data } = useFetch(`/pokemon/${id}`);
 
@@ -50,7 +53,7 @@ const SwrFetchData = ({ onClick }) => {
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
             <Header
-                title="Voltar"
+                title={t('menu.go_back')}
                 canRefresh={true}
                 onRefresh={() => handleGetPokemon()}
                 onClick={onClick}
@@ -101,8 +104,4 @@ SwrFetchData.propTypes = {
     onClick: PropTypes.func
 };
 
-const mapStateToProps = (state, props) => ({
-    ...props
-});
-
-export default ConnectTo(mapStateToProps)(SwrFetchData);
+export default SwrFetchData;

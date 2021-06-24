@@ -1,60 +1,153 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { format, parseISO } from 'date-fns';
+import { useTranslation } from 'react-i18next';
+
 import ConnectTo from '../../../../store/connect';
+import settings from '../../../../config';
+
 import Card from '../../../../components/Card';
 import Header from '../Header';
 
-const StoredData = ({ appInfo, language, onClick }) => {
+const StoredData = ({ appInfo, user, language, onClick }) => {
+    const { t } = useTranslation();
+
+    const formatDate = (datetime) =>
+        datetime &&
+        format(parseISO(datetime), settings.default_datetime_format);
+
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
-            <Header title="Voltar" onClick={onClick} />
-            <div className="w-50 m0 ml2-m ml3-l mb3 mb4-l mt4">
-                <Card className="min-h-18">
-                    <div className="overflow-auto">
-                        <table className="f6 w-100 mw8 center">
-                            <tbody className="lh-copy">
-                                <tr>
-                                    <td className="pv3 b bb b--black-20">
-                                        Name
-                                    </td>
-                                    <td className="pv3 bb b--black-20">
-                                        {!!appInfo &&
-                                            !!appInfo.name &&
-                                            appInfo.name}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="pv3 b bb b--black-20">
-                                        Short Name
-                                    </td>
-                                    <td className="pv3 bb b--black-20">
-                                        {!!appInfo &&
-                                            !!appInfo.shortName &&
-                                            appInfo.shortName}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="pv3 b bb b--black-20">
-                                        Identifier
-                                    </td>
-                                    <td className="pv3 bb b--black-20">
-                                        {!!appInfo &&
-                                            !!appInfo.applicationJson &&
-                                            appInfo.applicationJson.identifier}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="pv3 b bb b--black-20">
-                                        Language
-                                    </td>
-                                    <td className="pv3 bb b--black-20">
-                                        {!!language && language}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </Card>
+            <Header title={t('menu.go_back')} onClick={onClick} />
+            <div className="flex">
+                <div className="w-50 m0 mb3 mb4-l mt4">
+                    <Card className="min-h-18">
+                        <div className="overflow-auto">
+                            <h4 className="f4 mt0 mb3">
+                                {t('title.system_info')}
+                            </h4>
+                            <table className="f6 w-100 mw8 center">
+                                <tbody className="lh-copy">
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('name')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {appInfo?.name || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('short_name')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {appInfo?.shortName || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('identifier')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {appInfo?.applicationJson
+                                                ?.identifier || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('access_key')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {appInfo?.applicationJson
+                                                ?.accessKey || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('template')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {appInfo?.template || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('creation_date')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {!!appInfo?.created
+                                                ? formatDate(appInfo.created)
+                                                : '-'}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </Card>
+                </div>
+                <div className="w-50 m0 ml2-m ml3-l mb3 mb4-l mt4">
+                    <Card className="min-h-18">
+                        <div className="overflow-auto">
+                            <h4 className="f4 mt0 mb3">
+                                {t('title.user_info')}
+                            </h4>
+                            <table className="f6 w-100 mw8 center">
+                                <tbody className="lh-copy">
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('name')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {user?.fullName || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('email')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {user?.email || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('phone')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {user?.phoneNumber || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('identity')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {user?.identity || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('language')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {language || '-'}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pv3 b bb b--black-20">
+                                            {t('creation_date')}
+                                        </td>
+                                        <td className="pv3 bb b--black-20">
+                                            {!!user?.creationDate
+                                                ? formatDate(user.creationDate)
+                                                : '-'}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </Card>
+                </div>
             </div>
         </div>
     );
@@ -62,6 +155,7 @@ const StoredData = ({ appInfo, language, onClick }) => {
 
 StoredData.propTypes = {
     appInfo: PropTypes.object,
+    user: PropTypes.object,
     language: PropTypes.string,
     onClick: PropTypes.func
 };
@@ -69,6 +163,7 @@ StoredData.propTypes = {
 const mapStateToProps = (state, props) => ({
     appInfo: state.application.appInfo,
     language: state.common.language,
+    user: state.user.data,
     ...props
 });
 

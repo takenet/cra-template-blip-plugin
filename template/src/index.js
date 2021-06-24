@@ -5,6 +5,8 @@ import { ResizeObserver } from 'resize-observer';
 import { applyPolyfills, defineCustomElements } from 'blip-ds/loader';
 import { setHeight } from './services/common-service';
 import './assets/styles/app.scss';
+import './translate'; // i18n
+
 import App from './App';
 
 IframeMessageProxy.listen();

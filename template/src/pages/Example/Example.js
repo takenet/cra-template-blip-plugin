@@ -1,21 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ConnectTo from '../../store/connect';
-
-import { withLoading } from '../../services/common-service';
-
-import * as ApplicationActions from '../../store/actions/application';
-import * as CommonActions from '../../store/actions/common';
 
 import StoredData from './components/StoredData';
 import SwrFetchData from './components/SwrFetchData';
 
-import sleep from '../../utils/sleep';
-
-const DELAY_TIME = 600;
-
-const Example = ({ dispatch }) => {
+const Example = () => {
     const history = useHistory();
     const { state } = useLocation();
     const [example, setExample] = useState(null);
@@ -28,19 +18,6 @@ const Example = ({ dispatch }) => {
             }
         }
     }, [state]);
-
-    useEffect(() => {
-        getInitialInfo();
-        // eslint-disable-next-line
-    }, []);
-
-    const getInitialInfo = () => {
-        withLoading(async () => {
-            await dispatch(ApplicationActions.getApplication());
-            await dispatch(CommonActions.getLanguage());
-            await sleep(DELAY_TIME);
-        });
-    };
 
     const handleNavigation = useCallback(() => {
         history.push('/');
@@ -57,8 +34,4 @@ Example.propTypes = {
     dispatch: PropTypes.func
 };
 
-const mapStateToProps = (state, props) => ({
-    ...props
-});
-
-export default ConnectTo(mapStateToProps)(Example);
+export default Example;
