@@ -6,7 +6,6 @@ import i18n from '../translate';
 
 import ConnectTo from '../store/connect';
 
-import { load, identify } from '../services/analytics';
 import { getCurrentLanguageAsync } from '../services/application-service';
 import { withLoadingAsync, showToast } from '../services/common-service';
 import BlipPortalToastTypes from '../constants/blip-portal-toast-types';
@@ -24,10 +23,6 @@ const Initialize = ({ dispatch }) => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        // segment analytics
-        load();
-        identify();
-
         // get application, user and language
         getInitialInfo();
         // eslint-disable-next-line
