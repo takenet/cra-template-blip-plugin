@@ -21,7 +21,7 @@ const Header = ({
     return (
         <PageHeader
             title={title}
-            is_back_navigation={true}
+            isBackNavigation={true}
             relatedOptions={canRefresh && renderOptions()}
             onBackPressed={onClick}
         />

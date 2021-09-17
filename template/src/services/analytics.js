@@ -1,65 +1,53 @@
 import settings from '../config';
 import { toKebabCase } from '../utils/string';
 
-const load = () => {
-    if (!!settings.segment.key && !!window.analytics) {
-        window.analytics.load(settings.segment.key);
+const executeActionSafe = (actionName, ...params) => {
+    if (
+        !!settings.segment.key &&
+        !!window.analytics &&
+        !!window.analytics[actionName]
+    ) {
+        window.analytics[actionName](...params);
     }
 };
 
-const page = (
-    name = '',
-    properties = {},
-    options = {},
-    callback = () => {}
+// Will execute action with formated name as first parameter
+const executeNamedAction = (
+    actionName,
+    eventName,
+    eventParamPosition = 0,
+    ...params
 ) => {
-    if (!!settings.segment.key && !!window.analytics) {
-        const formated_name = toKebabCase(`page-${name}`);
-        window.analytics.page(formated_name, properties, options, callback);
-    }
+    const fixedEventName = `${settings.segment.prefix}-${toKebabCase(
+        eventName
+    )}`;
+    params.splice(eventParamPosition, 0, fixedEventName);
+    executeActionSafe(actionName, ...params);
 };
+
+const load = () => executeActionSafe('load', settings.segment.key);
 
 const track = (
     event = '',
     properties = {},
     options = {},
     callback = () => {}
-) => {
-    if (!!settings.segment.key && !!window.analytics) {
-        const formated_event = toKebabCase(
-            `${settings.segment.prefix}-${event}`
-        );
-        window.analytics.track(formated_event, properties, options, callback);
-    }
-};
+) => executeNamedAction('track', event, 0, properties, options, callback);
 
-const trackForm = (form, event = '', properties = {}) => {
-    if (!!settings.segment.key && !!window.analytics) {
-        const formated_event = toKebabCase(
-            `${settings.segment.prefix}-${event}`
-        );
-        window.analytics.trackForm(form, formated_event, properties);
-    }
-};
+const page = (name = '', properties = {}, options = {}, callback = () => {}) =>
+    track(`page-${name}`, properties, options, callback);
 
-const trackLink = (element, event = '', properties = {}) => {
-    if (!!settings.segment.key && !!window.analytics) {
-        const formated_event = toKebabCase(
-            `${settings.segment.prefix}-${event}`
-        );
-        window.analytics.trackLink(element, formated_event, properties);
-    }
-};
+const trackForm = (form, event = '', properties = {}) =>
+    executeNamedAction('trackForm', event, 1, form, properties);
+
+const trackLink = (element, event = '', properties = {}) =>
+    executeNamedAction('trackLink', event, 1, element, properties);
 
 const identify = (
-    user_id = '',
+    userId = '',
     traits = {},
     options = {},
     callback = () => {}
-) => {
-    if (!!settings.segment.key && !!window.analytics) {
-        window.analytics.identify(user_id, traits, options, callback);
-    }
-};
+) => executeActionSafe('identify', userId, traits, options, callback);
 
 export { load, page, track, trackForm, trackLink, identify };

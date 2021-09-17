@@ -1,22 +1,22 @@
-import * as action_types from '../../constants/application-actions';
+import ApplicationActions from '../../constants/application-actions';
 
-const application_default = {
+const defaultApplication = {
     application: {
         appInfo: {},
         appConfig: {}
     }
 };
 
-const applicationReducer = (state = application_default, action = {}) => {
+const applicationReducer = (state = defaultApplication, action = {}) => {
     switch (action.type) {
-        case action_types.set_application:
+        case ApplicationActions.SET_APPLICATION:
             return {
                 application: {
                     ...state.application,
                     appInfo: action.payload
                 }
             };
-        case action_types.set_configuration:
+        case ApplicationActions.SET_CONFIGURATION:
             return {
                 application: {
                     ...state.application,
@@ -28,5 +28,5 @@ const applicationReducer = (state = application_default, action = {}) => {
     }
 };
 
-export { application_default };
+export { defaultApplication };
 export default applicationReducer;

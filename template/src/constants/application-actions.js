@@ -1,5 +1,9 @@
-const get_application = 'getApplication';
-const set_application = 'setApplication';
-const set_configuration = 'setConfiguration';
+class ApplicationActions {
+    static GET_APPLICATION = 'getApplication';
 
-export { get_application, set_application, set_configuration };
+    static SET_APPLICATION = 'setApplication';
+
+    static SET_CONFIGURATION = 'setConfiguration';
+}
+
+export default ApplicationActions;

@@ -12,8 +12,8 @@ describe('Card component', () => {
             <Card
                 title="Card Title"
                 description="Short description about my bot"
-                image_url="http://placekitten.com/g/100/100"
-                image_type="square"
+                imageUrl="http://placekitten.com/g/100/100"
+                imageType="square"
                 btn={{ text: 'Ativar', active: false }}
             />
         );
@@ -67,13 +67,13 @@ describe('Card component', () => {
             <Card
                 title="Card Title"
                 description="Short description about my bot"
-                image_url="http://placekitten.com/g/100/100"
-                image_type="square"
+                imageUrl="http://placekitten.com/g/100/100"
+                imageType="square"
                 btn={{ text: 'Ativar', active: false, onClick: handleClick }}
             />
         );
-        const button_node = screen.queryByTestId('card-btn');
-        fireEvent.click(button_node);
+        const buttonNode = screen.queryByTestId('card-btn');
+        fireEvent.click(buttonNode);
         expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
@@ -82,8 +82,8 @@ describe('Card component', () => {
             <Card
                 title="Card Title"
                 description="Short description about my bot"
-                image_url="http://placekitten.com/g/100/100"
-                image_type="square"
+                imageUrl="http://placekitten.com/g/100/100"
+                imageType="square"
                 btn={{ text: 'Ativar', active: false }}
             />
         );

@@ -1,7 +1,13 @@
-const info = 'info';
-const success = 'success';
-const warning = 'warning';
-const danger = 'danger';
-const refresh = 'refresh';
+class BlipPortalToastTypes {
+    static INFO = 'info';
 
-export { info, success, warning, danger, refresh };
+    static SUCCESS = 'success';
+
+    static WARNING = 'warning';
+
+    static DANGER = 'danger';
+
+    static REFRESH = 'refresh';
+}
+
+export default BlipPortalToastTypes;

@@ -1,36 +1,36 @@
 const translations = {
     title: {
-        home_page: 'Plantilla de complementos',
+        homePage: 'Plantilla de complementos',
         exemples: 'Ejemplos',
-        system_info: 'Información del sistema',
-        user_info: 'Información del usuario'
+        systemInfo: 'Información del sistema',
+        userInfo: 'Información del usuario'
     },
     paragraph: {
-        home_description: {
+        homeDescription: {
             part1: 'Esta es una plantilla de complemento básica',
             part2: 'Edite <1>src/pages/Home.js</1> y guarde para recargar.'
         }
     },
     link: {
-        stored_exemple: 'Obtener datos almacenados como variables',
-        swr_exemple: 'Obtener datos con SWR'
+        storedExemple: 'Obtener datos almacenados como variables',
+        swrExemple: 'Obtener datos con SWR'
     },
     button: {
         repository: 'Visite el Repositorio'
     },
     menu: {
-        go_back: 'Volver'
+        goBack: 'Volver'
     },
     name: 'Nombre',
-    short_name: 'Nombre corto',
+    shortName: 'Nombre corto',
     email: 'E-mail',
     phone: 'Teléfono',
     identity: 'Identificador',
     identifier: 'Identificador',
     language: 'Idioma',
-    access_key: 'Llave de acceso',
+    accessKey: 'Llave de acceso',
     template: 'Plantilla',
-    creation_date: 'Fecha de creación'
+    creationDate: 'Fecha de creación'
 };
 
 export default translations;

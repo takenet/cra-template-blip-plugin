@@ -8,17 +8,15 @@ const Header = ({ title, icon, onClick = () => {} }) => {
     const { t } = useTranslation();
 
     const renderOptions = () => (
-        <>
-            <div className="ml3">
-                <Button
-                    text={t('button.repository')}
-                    icon="link"
-                    variant="ghost"
-                    onClick={() => onClick()}
-                    data_testid="repository-link"
-                />
-            </div>
-        </>
+        <div className="ml3">
+            <Button
+                text={t('button.repository')}
+                icon="link"
+                variant="ghost"
+                onClick={() => onClick()}
+                dataTestId="repository-link"
+            />
+        </div>
     );
 
     return (

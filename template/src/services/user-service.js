@@ -1,30 +1,32 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
-import * as IMPContainer from '../constants/iframe-message-proxy-container';
+import IMPContainer from '../constants/iframe-message-proxy-container';
 
-const PERMISSION = 'write';
+const PERMISSION_TYPE = 'write';
 const PERMISSION_AREA = 'team';
 
-const getLoggedUser = async () => {
+const ACCOUNT_URI = '/account';
+
+const getLoggedUserAsync = async () => {
     const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.send_command,
+        action: IMPContainer.Actions.SEND_COMMAND,
         content: {
             command: {
                 method: IMPContainer.CommandMethods.GET,
-                uri: '/account'
+                uri: ACCOUNT_URI
             },
-            destination: IMPContainer.Destinations.blip_service
+            destination: IMPContainer.Destinations.BLIP_SERVICE
         }
     });
 
     return response;
 };
 
-const userHasPermission = async (
-    permission = PERMISSION,
+const userHasPermissionAsync = async (
+    permission = PERMISSION_TYPE,
     area = PERMISSION_AREA
 ) => {
     const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.has_permissions,
+        action: IMPContainer.Actions.HAS_PERMISSIONS,
         content: {
             permissionType: permission,
             customArea: area
@@ -34,12 +36,12 @@ const userHasPermission = async (
     return response;
 };
 
-const getUserPermissions = async () => {
+const getUserPermissionsAsync = async () => {
     const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.get_permissions_object
+        action: IMPContainer.Actions.GET_PERMISSIONS_OBJECT
     });
 
     return response;
 };
 
-export { getLoggedUser, userHasPermission, getUserPermissions };
+export { getLoggedUserAsync, userHasPermissionAsync, getUserPermissionsAsync };

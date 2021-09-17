@@ -4,6 +4,7 @@ import { StoreContext } from '../hooks/store';
 
 const returnPropsAsDefault = (store, props) => props;
 
+
 const Connect =
     (mapStateToProps = returnPropsAsDefault) =>
     (Component) => {

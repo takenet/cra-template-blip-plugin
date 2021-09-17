@@ -8,24 +8,22 @@ const Button = ({
     arrow,
     disabled,
     children,
-    aria_label = 'bds-button',
-    data_testid = 'bds-button',
+    ariaLabel = 'bds-button',
+    dataTestId = 'bds-button',
     onClick = () => {}
-}) => {
-    return (
-        <bds-button
-            data-testid={data_testid}
-            aria-label={aria_label}
-            icon={icon}
-            variant={variant}
-            arrow={arrow}
-            disabled={disabled}
-            onClick={onClick}
-        >
-            {!!text ? text : children}
-        </bds-button>
-    );
-};
+}) => (
+    <bds-button
+        data-testid={dataTestId}
+        aria-label={ariaLabel}
+        icon={icon}
+        variant={variant}
+        arrow={arrow}
+        disabled={disabled}
+        onClick={onClick}
+    >
+        {!!text ? text : children}
+    </bds-button>
+);
 
 Button.propTypes = {
     variant: PropTypes.string,
@@ -34,8 +32,8 @@ Button.propTypes = {
     arrow: PropTypes.bool,
     disabled: PropTypes.bool,
     children: PropTypes.any,
-    aria_label: PropTypes.string,
-    data_testid: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    dataTestId: PropTypes.string,
     onClick: PropTypes.func
 };
 

@@ -10,17 +10,17 @@ import Home from '../Home';
 
 describe('Home page', () => {
     const history = createMemoryHistory();
-    const mocked_open = jest.fn();
-    const original_open = window.open;
+    const mockedOpen = jest.fn();
+    const originalOpen = window.open;
 
     beforeAll(() => {
         delete window.open;
-        window.open = mocked_open;
+        window.open = mockedOpen;
     });
 
     afterAll(() => {
         // Restore original
-        window.open = original_open;
+        window.open = originalOpen;
     });
 
     it('should navigate to exemple page one', () => {
@@ -35,7 +35,7 @@ describe('Home page', () => {
 
         userEvent.click(exempleOneLink);
         expect(history.location.pathname).toBe('/example');
-        expect(history.location.state.type).toBe('stored_data');
+        expect(history.location.state.type).toBe('storedData');
     });
 
     it('should navigate to exemple page two', () => {
@@ -50,7 +50,7 @@ describe('Home page', () => {
 
         userEvent.click(exempleTwoLink);
         expect(history.location.pathname).toBe('/example');
-        expect(history.location.state.type).toBe('swr_call');
+        expect(history.location.state.type).toBe('swrCall');
     });
 
     it('should navigate to repository', () => {
@@ -64,11 +64,11 @@ describe('Home page', () => {
         expect(repositoryButton).toBeInTheDocument();
 
         userEvent.click(repositoryButton);
-        expect(mocked_open).toHaveBeenCalled();
-        expect(mocked_open).toHaveBeenCalledTimes(1);
-        expect(mocked_open).toHaveBeenCalledWith(
+        expect(mockedOpen).toHaveBeenCalled();
+        expect(mockedOpen).toHaveBeenCalledTimes(1);
+        expect(mockedOpen).toHaveBeenCalledWith(
             'https://github.com/axeldouglas/cra-template-blip-plugin',
-            '_blank'
+            'Blank'
         );
     });
 

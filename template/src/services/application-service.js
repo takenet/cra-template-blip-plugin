@@ -1,28 +1,27 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
-import * as IMPActions from '../constants/iframe-message-proxy-actions';
-import * as IMPContainer from '../constants/iframe-message-proxy-container';
-import settings from '../config';
+import IMPContainer from '../constants/iframe-message-proxy-container';
 
-const CONFIGURATION_URL = `${settings.blip.commands_url}/configuration`;
-const CONTACTS_PATH = `/contacts`;
-const THREADS_PATH = `/threads`;
-const POST_TYPE = 'application/json';
+const PORTAL_NODE = 'postmaster@portal.blip.ai';
+const CONFIGURATION_URI = `lime://${PORTAL_NODE}/configuration`;
+const CONTACTS_URI = '/contacts';
+const THREADS_URI = '/threads';
+const JSON_TYPE = 'application/json';
 
-const getApplicationData = async (full_identity = null) => {
+const getApplicationDataAsync = async (fullIdentity = null) => {
     const { response: application } = await IframeMessageProxy.sendMessage({
-        action: IMPActions.get_application,
-        content: full_identity
+        action: IMPContainer.Actions.GET_APPLICATION,
+        content: fullIdentity
     });
     return application;
 };
 
-const getConfigurationData = async () => {
+const getConfigurationDataAsync = async () => {
     const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.send_command,
+        action: IMPContainer.Actions.SEND_COMMAND,
         content: {
             command: {
                 method: IMPContainer.CommandMethods.GET,
-                uri: CONFIGURATION_URL
+                uri: CONFIGURATION_URI
             }
         }
     });
@@ -30,14 +29,14 @@ const getConfigurationData = async () => {
     return response;
 };
 
-const setConfigurationData = async (payload) => {
+const setConfigurationDataAsync = async (payload) => {
     const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.send_command,
+        action: IMPContainer.Actions.SEND_COMMAND,
         content: {
             command: {
                 method: IMPContainer.CommandMethods.SET,
-                uri: CONFIGURATION_URL,
-                type: POST_TYPE,
+                uri: CONFIGURATION_URI,
+                type: JSON_TYPE,
                 resource: payload
             }
         }
@@ -46,24 +45,24 @@ const setConfigurationData = async (payload) => {
     return response;
 };
 
-const getCurrentLanguage = async () => {
+const getCurrentLanguageAsync = async () => {
     const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.get_current_language
+        action: IMPContainer.Actions.GET_CURRENT_LANGUAGE
     });
 
     return response;
 };
 
-const getContacts = async () => {
+const getContactsAsync = async () => {
     const {
         response: { items }
     } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.send_command,
+        action: IMPContainer.Actions.SEND_COMMAND,
         content: {
-            destination: IMPContainer.Destinations.messaging_hub_service,
+            destination: IMPContainer.Destinations.MESSAGING_HUB_SERVICE,
             command: {
                 method: IMPContainer.CommandMethods.GET,
-                uri: CONTACTS_PATH
+                uri: CONTACTS_URI
             }
         }
     });
@@ -71,16 +70,16 @@ const getContacts = async () => {
     return items;
 };
 
-const getThreads = async () => {
+const getThreadsAsync = async () => {
     const {
         response: { items }
     } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.send_command,
+        action: IMPContainer.Actions.SEND_COMMAND,
         content: {
-            destination: IMPContainer.Destinations.messaging_hub_service,
+            destination: IMPContainer.Destinations.MESSAGING_HUB_SERVICE,
             command: {
                 method: IMPContainer.CommandMethods.GET,
-                uri: THREADS_PATH
+                uri: THREADS_URI
             }
         }
     });
@@ -89,10 +88,10 @@ const getThreads = async () => {
 };
 
 export {
-    getApplicationData,
-    getConfigurationData,
-    setConfigurationData,
-    getCurrentLanguage,
-    getContacts,
-    getThreads
+    getApplicationDataAsync,
+    getConfigurationDataAsync,
+    setConfigurationDataAsync,
+    getCurrentLanguageAsync,
+    getContactsAsync,
+    getThreadsAsync
 };

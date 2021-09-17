@@ -13,18 +13,17 @@ const StoredData = ({ appInfo, user, language, onClick }) => {
     const { t } = useTranslation();
 
     const formatDate = (datetime) =>
-        datetime &&
-        format(parseISO(datetime), settings.default_datetime_format);
+        datetime && format(parseISO(datetime), settings.defaultDatetimeFormat);
 
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
-            <Header title={t('menu.go_back')} onClick={onClick} />
+            <Header title={t('menu.goBack')} onClick={onClick} />
             <div className="flex">
                 <div className="w-50 m0 mb3 mb4-l mt4">
                     <Card className="min-h-18">
                         <div className="overflow-auto">
                             <h4 className="f4 mt0 mb3">
-                                {t('title.system_info')}
+                                {t('title.systemInfo')}
                             </h4>
                             <table className="f6 w-100 mw8 center">
                                 <tbody className="lh-copy">
@@ -38,7 +37,7 @@ const StoredData = ({ appInfo, user, language, onClick }) => {
                                     </tr>
                                     <tr>
                                         <td className="pv3 b bb b--black-20">
-                                            {t('short_name')}
+                                            {t('shortName')}
                                         </td>
                                         <td className="pv3 bb b--black-20">
                                             {appInfo?.shortName || '-'}
@@ -55,7 +54,7 @@ const StoredData = ({ appInfo, user, language, onClick }) => {
                                     </tr>
                                     <tr>
                                         <td className="pv3 b bb b--black-20">
-                                            {t('access_key')}
+                                            {t('accessKey')}
                                         </td>
                                         <td className="pv3 bb b--black-20">
                                             {appInfo?.applicationJson
@@ -72,7 +71,7 @@ const StoredData = ({ appInfo, user, language, onClick }) => {
                                     </tr>
                                     <tr>
                                         <td className="pv3 b bb b--black-20">
-                                            {t('creation_date')}
+                                            {t('creationDate')}
                                         </td>
                                         <td className="pv3 bb b--black-20">
                                             {!!appInfo?.created
@@ -89,7 +88,7 @@ const StoredData = ({ appInfo, user, language, onClick }) => {
                     <Card className="min-h-18">
                         <div className="overflow-auto">
                             <h4 className="f4 mt0 mb3">
-                                {t('title.user_info')}
+                                {t('title.userInfo')}
                             </h4>
                             <table className="f6 w-100 mw8 center">
                                 <tbody className="lh-copy">
@@ -135,7 +134,7 @@ const StoredData = ({ appInfo, user, language, onClick }) => {
                                     </tr>
                                     <tr>
                                         <td className="pv3 b bb b--black-20">
-                                            {t('creation_date')}
+                                            {t('creationDate')}
                                         </td>
                                         <td className="pv3 bb b--black-20">
                                             {!!user?.creationDate

@@ -1,12 +1,12 @@
-import * as action_types from '../../constants/application-actions';
-import * as ApplicationService from '../../services/application-service';
-import * as ApplicationActions from '../actions/application';
+import ApplicationActionsType from '../../constants/application-actions';
+import { getApplicationDataAsync } from '../../services/application-service';
+import { setApplication } from '../actions/application';
 
-const getApplication = async (dispatch, { payload }) => {
+const getApplicationAsync = async (dispatch, { payload }) => {
     try {
-        const app_data = await ApplicationService.getApplicationData();
-        if (!!app_data) {
-            await dispatch(ApplicationActions.setApplication(app_data));
+        const appData = await getApplicationDataAsync();
+        if (!!appData) {
+            await dispatch(setApplication(appData));
         }
     } catch (error) {
         // display error message
@@ -15,8 +15,8 @@ const getApplication = async (dispatch, { payload }) => {
 
 const all = (action) => (dispatch) => {
     switch (action?.type) {
-        case action_types.get_application:
-            getApplication(dispatch, action);
+        case ApplicationActionsType.GET_APPLICATION:
+            getApplicationAsync(dispatch, action);
             break;
         default:
             break;

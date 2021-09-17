@@ -1,4 +1,7 @@
-const messaging_hub_service = 'MessagingHubService';
-const blip_service = 'BlipService';
+class BlipPortalDestinations {
+    static MESSAGING_HUB_SERVICE = 'MessagingHubService';
 
-export { messaging_hub_service, blip_service };
+    static BLIP_SERVICE = 'BlipService';
+}
+
+export default BlipPortalDestinations;

@@ -20,8 +20,8 @@ const SwrFetchData = ({ onClick }) => {
     }, []);
 
     const handleGetPokemon = useCallback(() => {
-        const pokemon_id = getRandomIntInclusive(1, 151);
-        setId(pokemon_id);
+        const pokemonId = getRandomIntInclusive(1, 151);
+        setId(pokemonId);
     }, []);
 
     const getRandomIntInclusive = (min, max) => {
@@ -36,7 +36,7 @@ const SwrFetchData = ({ onClick }) => {
             !Object.keys(sprites.other).length ||
             !Object.keys(sprites.other.dream_world).length
         ) {
-            return settings.default_plugin_image;
+            return settings.defaultPluginImage;
         }
         const image = sprites.other.dream_world.front_default;
         return image;
@@ -53,7 +53,7 @@ const SwrFetchData = ({ onClick }) => {
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
             <Header
-                title={t('menu.go_back')}
+                title={t('menu.goBack')}
                 canRefresh={true}
                 onRefresh={() => handleGetPokemon()}
                 onClick={onClick}

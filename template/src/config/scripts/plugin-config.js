@@ -2,19 +2,19 @@
 /**
  * CHARTS
  */
-const charts_look_up_path = './charts/**/*';
-const current_charts_name = 'PLUGIN_NAME';
-const regex_charts = new RegExp(`${current_charts_name}`, 'g');
+const CHARTS_LOOK_UP_PATH = './charts/**/*';
+const CURRENT_CHARTS_NAME = 'PLUGIN_NAME';
+const REGEX_CHARTS = new RegExp(`${CURRENT_CHARTS_NAME}`, 'g');
 
-const charts_current_path = `./charts/${current_charts_name}`;
-const charts_new_path = `./charts/${process.env.REACT_APP_NAME}`;
+const CHARTS_CURRENT_PATH = `./charts/${CURRENT_CHARTS_NAME}`;
+const CHARTS_NEW_PATH = `./charts/${process.env.REACT_APP_NAME}`;
 
 /**
  * APP SETTINGS
  */
-const config_path = './src/config';
-const app_settings_file = `${config_path}/appsettings.json`;
-const dev_app_settings_file = `${config_path}/appsettings.development.json`;
+const CONFIG_PATH = './src/config';
+const APP_SETTINGS_FILE = `${CONFIG_PATH}/appsettings.json`;
+const DEV_APP_SETTINGS_FILE = `${CONFIG_PATH}/appsettings.development.json`;
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
@@ -27,7 +27,7 @@ const fs = require('fs');
 
 // rename charts folder
 try {
-    fs.renameSync(charts_current_path, charts_new_path);
+    fs.renameSync(CHARTS_CURRENT_PATH, CHARTS_NEW_PATH);
     console.log('Directory renamed.');
 } catch (error) {
     console.error(error);
@@ -38,8 +38,8 @@ try {
 const replace = require('replace-in-file');
 
 const options = {
-    files: charts_look_up_path,
-    from: regex_charts,
+    files: CHARTS_LOOK_UP_PATH,
+    from: REGEX_CHARTS,
     to: process.env.REACT_APP_NAME
 };
 
@@ -53,7 +53,7 @@ try {
 
 // copy appsetting to development config file
 try {
-    fs.copyFileSync(app_settings_file, dev_app_settings_file);
+    fs.copyFileSync(APP_SETTINGS_FILE, DEV_APP_SETTINGS_FILE);
     console.log('Development appsettings created.');
 } catch (error) {
     console.error(error);

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
-import * as RoutesPath from '../../constants/routes-path';
+import RoutesPath from '../../constants/routes-path';
 
 import settings from '../../config';
 
@@ -25,16 +25,16 @@ const Home = () => {
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
             <Header
-                title={t('title.home_page')}
+                title={t('title.homePage')}
                 icon={PAGE_ICON}
-                onClick={() => window.open(settings.repository_url, BLANK)}
+                onClick={() => window.open(settings.repositoryUrl, BLANK)}
             />
             <div className="flex flex-column items-center justify-center bp-c-neutral-dark-city f5 h-100 mt4">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p className="tc">
-                    {t('paragraph.home_description.part1')}
+                    {t('paragraph.homeDescription.part1')}
                     <br />
-                    <Trans i18nKey="paragraph.home_description.part2">
+                    <Trans i18nKey="paragraph.homeDescription.part2">
                         Edit <code>src/pages/Home.js</code> and save to reload.
                     </Trans>
                 </p>
@@ -44,26 +44,26 @@ const Home = () => {
                     href="#0"
                     data-testid="exemple-one"
                     onClick={() =>
-                        handleNavigation(RoutesPath.example_page.path, {
-                            type: 'stored_data'
+                        handleNavigation(RoutesPath.EXAMPLE_PAGE.PATH, {
+                            type: 'storedData'
                         })
                     }
                 >
                     <bds-icon name="file-txt-1" size="x-small" />
-                    {t('link.stored_exemple')}
+                    {t('link.storedExemple')}
                 </a>
                 <a
                     className="f6 flex items-center blue no-underline underline-hover mt1"
                     href="#0"
                     data-testid="exemple-two"
                     onClick={() =>
-                        handleNavigation(RoutesPath.example_page.path, {
-                            type: 'swr_call'
+                        handleNavigation(RoutesPath.EXAMPLE_PAGE.PATH, {
+                            type: 'swrCall'
                         })
                     }
                 >
                     <bds-icon name="file-txt-1" size="x-small" />
-                    {t('link.swr_exemple')}
+                    {t('link.swrExemple')}
                 </a>
             </div>
         </div>

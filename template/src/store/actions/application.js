@@ -1,17 +1,17 @@
-import * as action_types from '../../constants/application-actions';
+import ApplicationActions from '../../constants/application-actions';
 
 const getApplication = (payload) => ({
-    type: action_types.get_application,
+    type: ApplicationActions.GET_APPLICATION,
     payload
 });
 
 const setApplication = (payload) => ({
-    type: action_types.set_application,
+    type: ApplicationActions.SET_APPLICATION,
     payload
 });
 
 const setConfiguration = (payload) => ({
-    type: action_types.set_configuration,
+    type: ApplicationActions.SET_CONFIGURATION,
     payload
 });
 

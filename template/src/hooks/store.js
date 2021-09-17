@@ -1,10 +1,10 @@
 import { useContext, createContext } from 'react';
-import { application_default } from '../store/reducers/application';
-import { common_default } from '../store/reducers/common';
-import { user_default } from '../store/reducers/user';
+import { defaultApplication } from '../store/reducers/application';
+import { defaultCommon } from '../store/reducers/common';
+import { defaultUser } from '../store/reducers/user';
 
 const defaultStore = {
-    store: { ...application_default, ...common_default, ...user_default },
+    store: { ...defaultApplication, ...defaultCommon, ...defaultUser },
     dispatch: () => {}
 };
 const StoreContext = createContext(defaultStore);

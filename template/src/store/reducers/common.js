@@ -1,27 +1,27 @@
-import * as action_types from '../../constants/common-actions';
+import CommonActions from '../../constants/common-actions';
 
-const common_default = {
+const defaultCommon = {
     common: {
         language: 'pt',
         loading: false
     }
 };
 
-const commonReducer = (state = common_default, action = {}) => {
+const commonReducer = (state = defaultCommon, action = {}) => {
     switch (action.type) {
-        case action_types.set_language:
+        case CommonActions.SET_LANGUAGE:
             return {
                 common: {
                     ...state.common,
                     language: action.payload.toLowerCase()
                 }
             };
-        case action_types.set_loading:
+        case CommonActions.SET_LOADING:
             return { common: { ...state.common, loading: action.payload } };
         default:
             return state;
     }
 };
 
-export { common_default };
+export { defaultCommon };
 export default commonReducer;

@@ -1,11 +1,11 @@
-const get_logged_user = 'getLoggedUser';
-const set_logged_user = 'setLoggedUser';
-const get_user_permission = 'getUserPermission';
-const set_user_permission = 'setUserPermission';
+class UserActions {
+    static GET_LOGGED_USER = 'getLoggedUser';
 
-export {
-    get_logged_user,
-    set_logged_user,
-    get_user_permission,
-    set_user_permission
-};
+    static SET_LOGGED_USER = 'setLoggedUser';
+
+    static GET_USER_PERMISSION = 'getUserPermission';
+
+    static SET_USER_PERMISSION = 'setUserPermission';
+}
+
+export default UserActions;

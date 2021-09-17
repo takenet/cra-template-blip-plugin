@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { page } from '../services/analytics';
-import * as RoutesPath from '../constants/routes-path';
+import RoutesPath from '../constants/routes-path';
 import settings from '../config';
 
 const Analytics = ({ children }) => {
@@ -21,11 +21,12 @@ const Analytics = ({ children }) => {
     }, [history]);
 
     const getPageTitle = (pathname) => {
-        return Object.keys(RoutesPath)
-            .filter((item) => RoutesPath[item].path === pathname)
-            .reduce((t, item) => {
-                return RoutesPath[item].name;
-            }, '');
+        // eslint-disable-next-line no-unused-vars
+        const [id, details] =
+            Object.entries(RoutesPath).find(([i, d]) => d.PATH === pathname) ||
+            [];
+
+        return details ? details.NAME : '';
     };
 
     return <Fragment>{children}</Fragment>;

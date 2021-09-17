@@ -30,8 +30,8 @@ describe('Button component', () => {
     });
 
     it('should handle click event', () => {
-        const back_button_node = screen.queryByTestId('bds-button');
-        fireEvent.click(back_button_node);
+        const backButtonNode = screen.queryByTestId('bds-button');
+        fireEvent.click(backButtonNode);
         expect(handleClick).toHaveBeenCalledTimes(1);
     });
 

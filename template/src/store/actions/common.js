@@ -1,17 +1,17 @@
-import * as action_types from '../../constants/common-actions';
+import CommonActions from '../../constants/common-actions';
 
 const getLanguage = (payload) => ({
-    type: action_types.get_language,
+    type: CommonActions.GET_LANGUAGE,
     payload
 });
 
 const setLanguage = (payload) => ({
-    type: action_types.set_language,
+    type: CommonActions.SET_LANGUAGE,
     payload
 });
 
 const setLoading = (payload) => ({
-    type: action_types.set_loading,
+    type: CommonActions.SET_LOADING,
     payload
 });
 

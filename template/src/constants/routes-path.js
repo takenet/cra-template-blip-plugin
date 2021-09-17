@@ -1,4 +1,7 @@
-const home = { name: 'Home', path: '/' };
-const example_page = { name: 'Example Page', path: '/example' };
+class RoutesPath {
+    static HOME = { NAME: 'Home', PATH: '/' };
 
-export { home, example_page };
+    static EXAMPLE_PAGE = { NAME: 'Example Page', PATH: '/example' };
+}
+
+export default RoutesPath;

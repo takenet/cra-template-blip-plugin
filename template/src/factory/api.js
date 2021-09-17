@@ -2,14 +2,14 @@ import axios from 'axios';
 import settings from '../config';
 
 const HEADER_TYPE = 'Content-Type';
-const TYPE_JSON = 'application/json; charset=utf-8';
+const JSON_TYPE = 'application/json; charset=utf-8';
 
-const API = () => {
-    const api = axios.create({ baseURL: settings.plugin.api_url });
+const ApiFactory = () => {
+    const api = axios.create({ baseURL: settings.plugin.apiUrl });
 
     api.interceptors.request.use(async (config) => {
         const headerConfig = config;
-        headerConfig.headers.post[HEADER_TYPE] = TYPE_JSON;
+        headerConfig.headers.post[HEADER_TYPE] = JSON_TYPE;
         return headerConfig;
     });
 
@@ -25,4 +25,4 @@ const API = () => {
     return api;
 };
 
-export default API();
+export default ApiFactory();

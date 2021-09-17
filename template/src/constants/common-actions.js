@@ -1,5 +1,9 @@
-const get_language = 'getLanguage';
-const set_language = 'setLanguage';
-const set_loading = 'setLoading';
+class CommonActions {
+    static GET_LANGUAGE = 'getLanguage';
 
-export { get_language, set_language, set_loading };
+    static SET_LANGUAGE = 'setLanguage';
+
+    static SET_LOADING = 'setLoading';
+}
+
+export default CommonActions;

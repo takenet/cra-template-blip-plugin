@@ -1,3 +1,5 @@
-const event_exemple = 'segment-event-example';
+class TrackingEvents {
+    static EVENT_EXAMPLE = 'TRACKING_ACTION_EXAMPLE';
+}
 
-export { event_exemple };
+export default TrackingEvents;

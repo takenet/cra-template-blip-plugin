@@ -1,4 +1,5 @@
 # BLiP plugin template
+
 [![NPM Version][npm-badge]][npm-url]
 [![Downloads][npm-downloads-badge]][npm-downloads-url]
 [![License][license-badge]][license-url]
@@ -99,7 +100,7 @@ npx create-react-app PROJECT_NAME --template blip-plugin
 
 #or
 
-yarn create react-app PROJECT_NAME --template blip-plugin
+yarn create-react-app PROJECT_NAME --template blip-plugin
 ```
 
 > Note: `npx` command installs most recent stable version of CRA from npm. `--template` parameter points to this template, note that `cra-template-` prefix is omitted.
@@ -133,6 +134,7 @@ yarn start
 Now just add the plugin to your chatbot and enjoy!
 
 ## More information
+
 [Blip plugin template](https://github.com/axeldouglas/cra-template-blip-plugin/tree/main/template)
 
 [npm-badge]: https://img.shields.io/npm/v/cra-template-blip-plugin.svg

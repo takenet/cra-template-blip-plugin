@@ -6,7 +6,7 @@
             "name": "Axel Douglas Santos",
             "email": "axel.santos@take.net"
         },
-        "private": true,
+        "private": false,
         "dependencies": {
             "axios": "^0.21.1",
             "blip-ds": "^1.111.4",
@@ -79,7 +79,9 @@
             ]
         },
         "babel": {
-            "presets": ["react-app"],
+            "presets": [
+                "react-app"
+            ],
             "env": {
                 "production": {
                     "plugins": [
@@ -97,10 +99,17 @@
             }
         },
         "eslintConfig": {
-            "extends": ["react-app", "react-app/jest"]
+            "extends": [
+                "react-app",
+                "react-app/jest"
+            ]
         },
         "browserslist": {
-            "production": [">0.2%", "not dead", "not op_mini all"],
+            "production": [
+                ">0.2%",
+                "not dead",
+                "not op_mini all"
+            ],
             "development": [
                 "last 1 chrome version",
                 "last 1 firefox version",
@@ -112,6 +121,7 @@
             "@testing-library/jest-dom": "^5.11.10",
             "@testing-library/react": "^11.2.6",
             "@testing-library/user-event": "^13.1.1",
+            "babel-eslint": "^10.1.0",
             "babel-plugin-react-remove-properties": "^0.3.0",
             "cross-env": "^7.0.3",
             "eslint": "^7.23.0",
@@ -119,6 +129,7 @@
             "eslint-config-airbnb-base": "^14.2.1",
             "eslint-config-prettier": "^8.1.0",
             "eslint-config-react-app": "^6.0.0",
+            "eslint-plugin-flowtype": "^6.0.1",
             "eslint-plugin-import": "^2.22.1",
             "eslint-plugin-jsx-a11y": "^6.4.1",
             "eslint-plugin-prettier": "^3.3.1",

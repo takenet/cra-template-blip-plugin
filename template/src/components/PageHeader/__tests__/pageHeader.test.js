@@ -14,10 +14,10 @@ describe('Page header component', () => {
             <PageHeader
                 title="Plugins"
                 icon="plugin"
-                is_informative={true}
-                help_text="Tooltip Text Info"
+                isInformative={true}
+                helpText="Tooltip Text Info"
                 relatedOptions={mockRenderOptions()}
-                is_back_navigation={false}
+                isBackNavigation={false}
             />
         );
         expect(
@@ -41,12 +41,12 @@ describe('Page header component', () => {
             <PageHeader
                 title="Plugins"
                 relatedOptions={mockRenderOptions()}
-                is_back_navigation={true}
+                isBackNavigation={true}
                 onBackPressed={handleClick}
             />
         );
-        const back_button_node = screen.queryByTestId('page-header-back-icon');
-        fireEvent.click(back_button_node);
+        const backButtonNode = screen.queryByTestId('page-header-back-icon');
+        fireEvent.click(backButtonNode);
         expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
@@ -55,10 +55,10 @@ describe('Page header component', () => {
             <PageHeader
                 title="Plugins"
                 icon="plugin"
-                is_informative={true}
-                help_text="Tooltip Text Info"
+                isInformative={true}
+                helpText="Tooltip Text Info"
                 relatedOptions={mockRenderOptions()}
-                is_back_navigation={false}
+                isBackNavigation={false}
             />
         );
         expect(container.firstChild).toMatchSnapshot();

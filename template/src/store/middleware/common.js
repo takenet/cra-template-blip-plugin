@@ -1,12 +1,12 @@
-import * as action_types from '../../constants/common-actions';
-import * as ApplicationService from '../../services/application-service';
-import * as CommonActions from '../actions/common';
+import CommonActionTypes from '../../constants/common-actions';
+import { getCurrentLanguageAsync } from '../../services/application-service';
+import { setLanguage } from '../actions/common';
 
-const getLanguage = async (dispatch, { payload }) => {
+const getLanguageAsync = async (dispatch, { payload }) => {
     try {
-        const language = await ApplicationService.getCurrentLanguage();
+        const language = await getCurrentLanguageAsync();
         if (!!language) {
-            await dispatch(CommonActions.setLanguage(language));
+            await dispatch(setLanguage(language));
         }
     } catch (error) {
         // display error message
@@ -15,8 +15,8 @@ const getLanguage = async (dispatch, { payload }) => {
 
 const all = (action) => (dispatch) => {
     switch (action?.type) {
-        case action_types.get_language:
-            getLanguage(dispatch, action);
+        case CommonActionTypes.GET_LANGUAGE:
+            getLanguageAsync(dispatch, action);
             break;
         default:
             break;

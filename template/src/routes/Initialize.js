@@ -7,9 +7,9 @@ import i18n from '../translate';
 import ConnectTo from '../store/connect';
 
 import { load, identify } from '../services/analytics';
-import { getCurrentLanguage } from '../services/application-service';
-import { withLoading, showToast } from '../services/common-service';
-import * as BlipPortalToastTypes from '../constants/blip-portal-toast-types';
+import { getCurrentLanguageAsync } from '../services/application-service';
+import { withLoadingAsync, showToast } from '../services/common-service';
+import BlipPortalToastTypes from '../constants/blip-portal-toast-types';
 
 import * as ApplicationActions from '../store/actions/application';
 import * as CommonActions from '../store/actions/common';
@@ -34,22 +34,22 @@ const Initialize = ({ dispatch }) => {
     }, []);
 
     const getInitialInfo = () => {
-        withLoading(async () => {
+        withLoadingAsync(async () => {
             await dispatch(ApplicationActions.getApplication());
             await dispatch(UserActions.getLoggedUser());
-            await getLanguage();
+            await getLanguageAsync();
             await sleep(DELAY_TIME);
 
             showToast({
-                type: BlipPortalToastTypes.success,
+                type: BlipPortalToastTypes.SUCCESS,
                 message: t('success.loaded')
             });
         });
     };
 
     // configure i18n
-    const getLanguage = async () => {
-        const language = await getCurrentLanguage();
+    const getLanguageAsync = async () => {
+        const language = await getCurrentLanguageAsync();
 
         if (!!language && language !== DEFAULT_LANGUAGE) {
             i18n.changeLanguage(language);

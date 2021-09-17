@@ -7,15 +7,15 @@ const COLOR_NEUTRAL_MEDIUM_CLOUD = '#8CA0B3';
 const PageHeader = ({
     title,
     icon,
-    is_informative = false,
-    help_text,
-    is_back_navigation = false,
+    isInformative = false,
+    helpText,
+    isBackNavigation = false,
     onBackPressed,
     relatedOptions
 }) => {
     const renderInfoTitle = () => (
         <div className="pointer" data-testid="page-header-tooltip">
-            <bds-tooltip tooltip-text={help_text} position="right-center">
+            <bds-tooltip tooltip-text={helpText} position="right-center">
                 <bds-icon
                     name="info"
                     theme="solid"
@@ -28,7 +28,7 @@ const PageHeader = ({
     return (
         <div className="flex flex-row items-center-ns justify-between w-100 pv3 mt2 bb bp-bc-neutral-medium-wave">
             <div className="flex items-center">
-                {is_back_navigation && (
+                {isBackNavigation && (
                     <div
                         className="pointer mr1"
                         onClick={onBackPressed}
@@ -52,7 +52,7 @@ const PageHeader = ({
 
                 <h2 className="f3 ml2 mr1 bp-c-neutral-dark-city">{title}</h2>
 
-                {is_informative && !!help_text && renderInfoTitle()}
+                {isInformative && !!helpText && renderInfoTitle()}
             </div>
             {!!relatedOptions && (
                 <div className="flex items-center justify-end">
@@ -66,9 +66,9 @@ const PageHeader = ({
 PageHeader.propTypes = {
     title: Proptypes.string,
     icon: Proptypes.string,
-    is_informative: Proptypes.bool,
-    help_text: Proptypes.string,
-    is_back_navigation: Proptypes.bool,
+    isInformative: Proptypes.bool,
+    helpText: Proptypes.string,
+    isBackNavigation: Proptypes.bool,
     onBackPressed: Proptypes.func,
     relatedOptions: Proptypes.any
 };

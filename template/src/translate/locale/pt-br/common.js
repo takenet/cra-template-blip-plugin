@@ -1,36 +1,36 @@
 const translations = {
     title: {
-        home_page: 'Template de Plugins',
+        homePage: 'Template de Plugins',
         exemples: 'Exemplos',
-        system_info: 'Informações do sistema',
-        user_info: 'Informações do usuário'
+        systemInfo: 'Informações do sistema',
+        userInfo: 'Informações do usuário'
     },
     paragraph: {
-        home_description: {
+        homeDescription: {
             part1: 'Este é um modelo de plugin básico',
             part2: 'Edite <1>src/pages/Home.js</1> e salve para recarregar.'
         }
     },
     link: {
-        stored_exemple: 'Obtenha dados armazenados como variáveis',
-        swr_exemple: 'Buscar dados com SWR'
+        storedExemple: 'Obtenha dados armazenados como variáveis',
+        swrExemple: 'Buscar dados com SWR'
     },
     button: {
         repository: 'Visite o Repositório'
     },
     menu: {
-        go_back: 'Voltar'
+        goBack: 'Voltar'
     },
     name: 'Nome',
-    short_name: 'Nome abreviado',
+    shortName: 'Nome abreviado',
     email: 'E-mail',
     phone: 'Telefone',
     identity: 'Identificador',
     identifier: 'Identificador',
     language: 'Idioma',
-    access_key: 'Chave de acesso',
+    accessKey: 'Chave de acesso',
     template: 'Template',
-    creation_date: 'Data de criação'
+    creationDate: 'Data de criação'
 };
 
 export default translations;

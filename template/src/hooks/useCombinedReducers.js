@@ -1,17 +1,17 @@
 import { useReducer } from 'react';
 import applicationReducer, {
-    application_default
+    defaultApplication
 } from '../store/reducers/application';
-import commonReducer, { common_default } from '../store/reducers/common';
-import userReducer, { user_default } from '../store/reducers/user';
+import commonReducer, { defaultCommon } from '../store/reducers/common';
+import userReducer, { defaultUser } from '../store/reducers/user';
 
 const useCombinedReducers = () => {
     const [applicationStore, application] = useReducer(
         applicationReducer,
-        application_default
+        defaultApplication
     );
-    const [commonStore, common] = useReducer(commonReducer, common_default);
-    const [userStore, user] = useReducer(userReducer, user_default);
+    const [commonStore, common] = useReducer(commonReducer, defaultCommon);
+    const [userStore, user] = useReducer(userReducer, defaultUser);
 
     return {
         store: { ...applicationStore, ...commonStore, ...userStore },

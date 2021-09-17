@@ -6,17 +6,17 @@ const Card = ({
     title,
     description,
     image,
-    image_url = '',
-    image_type,
+    imageUrl = '',
+    imageType,
     btn,
     className,
     children,
-    card_color = 'white',
-    text_align = 'tc',
+    cardColor = 'white',
+    textAlign = 'tc',
     linkable = false
 }) => {
     const card_class = classNames({
-        [`bg-${card_color}`]: !!card_color,
+        [`bg-${cardColor}`]: !!cardColor,
         pointer: linkable,
         hoverable: linkable
     });
@@ -24,7 +24,7 @@ const Card = ({
     const renderImage = () => {
         let image_class = '';
 
-        switch (image_type) {
+        switch (imageType) {
             case 'cover':
                 image_class = classNames('w-100', 'br--top', 'br2');
                 break;
@@ -57,10 +57,10 @@ const Card = ({
 
         return (
             <div className="center">
-                {image_url.length ? (
+                {imageUrl.length ? (
                     <img
                         data-testid="card-img"
-                        src={image_url}
+                        src={imageUrl}
                         className={`db ${image_class}`}
                         alt="card avatar"
                     />
@@ -74,12 +74,12 @@ const Card = ({
     const renderBody = () => (
         <div className="pa2 pa3-ns min-h-3">
             {!!title && (
-                <h6 className={`f6 b mb2 truncate ${text_align}`} title={title}>
+                <h6 className={`f6 b mb2 truncate ${textAlign}`} title={title}>
                     {title}
                 </h6>
             )}
             {!!description && (
-                <p className={`f6 gray mt0 mv1 ${text_align}`}>{description}</p>
+                <p className={`f6 gray mt0 mv1 ${textAlign}`}>{description}</p>
             )}
             {!!children && children}
         </div>
@@ -124,7 +124,7 @@ const Card = ({
         <article
             className={`w-100 flex flex-column ba b--black-10 br3 shadow-6 animated fade-in ${card_class} ${className}`}
         >
-            {(!!image || !!image_url) && renderImage()}
+            {(!!image || !!imageUrl) && renderImage()}
             {renderBody()}
             {!!btn && renderFooterButton()}
         </article>
@@ -135,13 +135,13 @@ Card.propTypes = {
     title: PropTypes.any,
     description: PropTypes.string,
     image: PropTypes.any,
-    image_url: PropTypes.string,
-    image_type: PropTypes.string,
+    imageUrl: PropTypes.string,
+    imageType: PropTypes.string,
     btn: PropTypes.object,
     className: PropTypes.string,
     children: PropTypes.any,
-    card_color: PropTypes.string,
-    text_align: PropTypes.string,
+    cardColor: PropTypes.string,
+    textAlign: PropTypes.string,
     linkable: PropTypes.bool
 };
 

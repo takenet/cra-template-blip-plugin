@@ -1,29 +1,29 @@
-const send_command = 'sendCommand';
-const start_loading = 'startLoading';
-const stop_loading = 'stopLoading';
-const height_change = 'heightChange';
-const show_modal = 'showModal';
-const hide_navbar = 'hideNavbar';
-const show_navbar = 'showNavbar';
-const get_current_language = 'getCurrentLanguage';
-const toast = 'toast';
-const get_application = 'getApplication';
-const has_permissions = 'hasPermissions';
-const get_permissions_object = 'getPermissionsObject';
-const get_user_context = 'getUserContext';
+class IframeMessageProxyActions {
+    static SEND_COMMAND = 'sendCommand';
 
-export {
-    send_command,
-    start_loading,
-    stop_loading,
-    height_change,
-    show_modal,
-    hide_navbar,
-    show_navbar,
-    get_current_language,
-    toast,
-    get_application,
-    has_permissions,
-    get_permissions_object,
-    get_user_context
-};
+    static START_LOADING = 'startLoading';
+
+    static STOP_LOADING = 'stopLoading';
+
+    static HEIGHT_CHANGE = 'heightChange';
+
+    static SHOW_MODAL = 'showModal';
+
+    static HIDE_NAVBAR = 'hideNavbar';
+
+    static SHOW_NAVBAR = 'showNavbar';
+
+    static GET_CURRENT_LANGUAGE = 'getCurrentLanguage';
+
+    static TOAST = 'toast';
+
+    static GET_APPLICATION = 'getApplication';
+
+    static HAS_PERMISSIONS = 'hasPermissions';
+
+    static GET_PERMISSIONS_OBJECT = 'getPermissionsObject';
+
+    static GET_USER_CONTEXT = 'getUserContext';
+}
+
+export default IframeMessageProxyActions;

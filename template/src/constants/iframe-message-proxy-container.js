@@ -1,16 +1,17 @@
 import { CommandMethod, CommandStatus, NotificationEvent } from 'lime-js';
-import * as BlipPortalDestinations from './blip-portal-destinations';
-import * as IframeMessageProxyActions from './iframe-message-proxy-actions';
+import BlipPortalDestinations from './blip-portal-destinations';
+import IframeMessageProxyActions from './iframe-message-proxy-actions';
 
-const CommandMethods = CommandMethod;
-const NotificationEvents = NotificationEvent;
-const Destinations = BlipPortalDestinations;
-const Actions = IframeMessageProxyActions;
+class IframeMessageProxyContainer {
+    static CommandMethods = CommandMethod;
 
-export {
-    CommandMethods,
-    CommandStatus,
-    NotificationEvents,
-    Destinations,
-    Actions
-};
+    static CommandStatus = CommandStatus;
+
+    static NotificationEvents = NotificationEvent;
+
+    static Destinations = BlipPortalDestinations;
+
+    static Actions = IframeMessageProxyActions;
+}
+
+export default IframeMessageProxyContainer;

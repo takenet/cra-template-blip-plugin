@@ -1,17 +1,17 @@
-import * as action_types from '../../constants/user-actions';
+import UserActions from '../../constants/user-actions';
 
-const user_default = {
+const defaultUser = {
     user: {
         data: {},
         permission: ''
     }
 };
 
-const userReducer = (state = user_default, action = {}) => {
+const userReducer = (state = defaultUser, action = {}) => {
     switch (action.type) {
-        case action_types.set_logged_user:
+        case UserActions.SET_LOGGED_USER:
             return { user: { ...state.user, data: action.payload } };
-        case action_types.set_user_permission:
+        case UserActions.SET_USER_PERMISSION:
             return {
                 user: {
                     ...state.user,
@@ -23,5 +23,5 @@ const userReducer = (state = user_default, action = {}) => {
     }
 };
 
-export { user_default };
+export { defaultUser };
 export default userReducer;

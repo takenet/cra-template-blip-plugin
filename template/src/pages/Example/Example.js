@@ -23,7 +23,7 @@ const Example = () => {
         history.push('/');
     }, [history]);
 
-    return example === 'stored_data' ? (
+    return example === 'storedData' ? (
         <StoredData onClick={() => handleNavigation()} />
     ) : (
         <SwrFetchData onClick={() => handleNavigation()} />

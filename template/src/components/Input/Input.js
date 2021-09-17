@@ -8,28 +8,28 @@ const Input = ({
     placeholder,
     icon,
     value,
-    helper_message,
-    error_message,
-    min_length,
-    max_length,
+    helperMessage,
+    errorMessage,
+    minLength,
+    maxLength,
     danger = false,
     focused = false,
-    wait_time = 500,
-    textarea_cols = 0,
-    textarea_rows = 0,
-    is_textarea = false,
+    waitTime = 500,
+    textareaCols = 0,
+    textareaRows = 0,
+    isTextarea = false,
     errors = {},
     touched = {},
     onFocus = () => {},
     onBlur = () => {},
     onChange = () => {}
 }) => {
-    const blip_input_ref = useRef(null);
+    const blipInputRef = useRef(null);
     const [error, setError] = useState('');
     let time = null;
 
     useEffect(() => {
-        const { current } = blip_input_ref;
+        const { current } = blipInputRef;
         current.addEventListener('bdsChange', handleChange);
         current.addEventListener('bdsFocus', (e) => onFocus(e));
         current.addEventListener('bdsOnBlur', (e) => onBlur(e));
@@ -43,7 +43,7 @@ const Input = ({
     }, []);
 
     useEffect(() => {
-        const { current } = blip_input_ref;
+        const { current } = blipInputRef;
         if (!!focused && !!current) {
             current.setFocus();
         }
@@ -59,27 +59,27 @@ const Input = ({
 
     const handleChange = (e) => {
         clearTimeout(time);
-        time = setTimeout(() => onChange(e), wait_time);
+        time = setTimeout(() => onChange(e), waitTime);
     };
 
     return (
         <div className="relative">
             <bds-input
                 data-testid="bds-input"
-                ref={blip_input_ref}
+                ref={blipInputRef}
                 input-name={name}
                 label={label}
                 placeholder={placeholder}
                 icon={icon}
                 value={value}
-                helper-message={helper_message}
+                helper-message={helperMessage}
                 danger={!!error || danger}
-                error-message={error || error_message}
-                minlength={min_length}
-                maxlength={max_length}
-                cols={textarea_cols}
-                rows={textarea_rows}
-                is-textarea={is_textarea}
+                error-message={error || errorMessage}
+                minlength={minLength}
+                maxlength={maxLength}
+                cols={textareaCols}
+                rows={textareaRows}
+                is-textarea={isTextarea}
             />
         </div>
     );
@@ -91,16 +91,16 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     icon: PropTypes.string,
     value: PropTypes.string,
-    helper_message: PropTypes.string,
-    error_message: PropTypes.string,
-    min_length: PropTypes.number,
-    max_length: PropTypes.number,
+    helperMessage: PropTypes.string,
+    errorMessage: PropTypes.string,
+    minLength: PropTypes.number,
+    maxLength: PropTypes.number,
     danger: PropTypes.bool,
     focused: PropTypes.bool,
-    wait_time: PropTypes.number,
-    textarea_cols: PropTypes.number,
-    textarea_rows: PropTypes.number,
-    is_textarea: PropTypes.bool,
+    waitTime: PropTypes.number,
+    textareaCols: PropTypes.number,
+    textareaRows: PropTypes.number,
+    isTextarea: PropTypes.bool,
     errors: PropTypes.object,
     touched: PropTypes.object,
     onFocus: PropTypes.func,

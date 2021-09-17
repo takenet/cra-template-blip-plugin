@@ -1,36 +1,36 @@
 const translations = {
     title: {
-        home_page: 'Plugins Template',
+        homePage: 'Plugins Template',
         exemples: 'Examples',
-        system_info: 'System info',
-        user_info: 'User info'
+        systemInfo: 'System info',
+        userInfo: 'User info'
     },
     paragraph: {
-        home_description: {
+        homeDescription: {
             part1: 'This is a basic plugin template.',
             part2: 'Edit <1>src/pages/Home.js</1> and save to reload.'
         }
     },
     link: {
-        stored_exemple: 'Get stored data as props',
-        swr_exemple: 'SWR fetch data'
+        storedExemple: 'Get stored data as props',
+        swrExemple: 'SWR fetch data'
     },
     button: {
         repository: 'Visit the Repository'
     },
     menu: {
-        go_back: 'Back'
+        goBack: 'Back'
     },
     name: 'Name',
-    short_name: 'Short name',
+    shortName: 'Short name',
     email: 'E-mail',
     phone: 'Phone',
     identity: 'Identity',
     identifier: 'Identifier',
     language: 'Language',
-    access_key: 'Access key',
+    accessKey: 'Access key',
     template: 'Template',
-    creation_date: 'Creation date'
+    creationDate: 'Creation date'
 };
 
 export default translations;
