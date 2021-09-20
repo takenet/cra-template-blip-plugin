@@ -3,20 +3,16 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { page } from '../services/analytics';
 import RoutesPath from '../constants/routes-path';
-import settings from '../config';
 
 const Analytics = ({ children }) => {
     const history = useHistory();
 
     useEffect(() => {
-        if (!!settings.segment.key) {
-            return history.listen((location) => {
-                const { pathname, state } = location;
-                const title = getPageTitle(pathname);
-                page(title, { state });
-            });
-        }
-
+        return history.listen((location) => {
+            const { pathname, state } = location;
+            const title = getPageTitle(pathname);
+            page(title, { state });
+        });
         // eslint-disable-next-line
     }, [history]);
 
