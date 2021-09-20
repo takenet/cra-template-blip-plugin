@@ -5,4 +5,4 @@ const setPluginDataAsync = async (params) => {
     return data;
 };
 
-export { setPluginData };
+export { setPluginDataAsync };
