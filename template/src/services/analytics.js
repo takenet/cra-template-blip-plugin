@@ -27,7 +27,7 @@ const track = (
     options = {},
     callback = () => {}
 ) => {
-    createTrackAsync(event, { properties, options }, callback);
+    createTrackAsync(event, { ...properties, ...options }, callback);
 };
 
 const page = (name = '', properties = {}, options = {}, callback = () => {}) =>
