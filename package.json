@@ -1,6 +1,6 @@
 {
     "name": "cra-template-blip-plugin",
-    "version": "0.1.14",
+    "version": "0.1.15",
     "keywords": [
         "blip",
         "plugin",
@@ -10,7 +10,7 @@
     "description": "React's template for Blip plugin.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/takenet/cra-template-blip-plugin.git",
+        "url": "https://github.com/takenet/cra-template-blip-plugin-context.git",
         "directory": "/tree/main/template"
     },
     "license": "MIT",
@@ -18,7 +18,7 @@
         "node": ">=10"
     },
     "bugs": {
-        "url": "https://github.com/takenet/cra-template-blip-plugin/issues"
+        "url": "https://github.com/takenet/cra-template-blip-plugin-context/issues"
     },
     "files": [
         "template",
