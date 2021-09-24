@@ -12,7 +12,7 @@ const translations = {
         }
     },
     link: {
-        storedExemple: 'Get stored data as props',
+        blipDataExample: 'Get blip data',
         swrExemple: 'SWR fetch data'
     },
     button: {

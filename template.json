@@ -3,8 +3,8 @@
         "name": "blip-plugin-template",
         "version": "0.1.7",
         "author": {
-            "name": "Axel Douglas Santos",
-            "email": "axel.santos@take.net"
+            "name": "Gabriel Santos",
+            "email": "gabrielr@take.net"
         },
         "private": false,
         "dependencies": {
@@ -74,7 +74,6 @@
                 "<rootDir>/src/hooks/",
                 "<rootDir>/src/routes/",
                 "<rootDir>/src/services/",
-                "<rootDir>/src/store/",
                 "<rootDir>/src/utils/"
             ]
         },

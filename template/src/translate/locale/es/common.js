@@ -12,7 +12,7 @@ const translations = {
         }
     },
     link: {
-        storedExemple: 'Obtener datos almacenados como variables',
+        blipDataExample: 'Obtener datos de blip',
         swrExemple: 'Obtener datos con SWR'
     },
     button: {

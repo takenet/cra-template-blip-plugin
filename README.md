@@ -8,6 +8,12 @@ BLiP plugin it's a technology-agnostic way to plug unnoficial features to enhanc
 
 This project aims to give the initial skill needed to develop and build your own plugins.
 
+## Other templates
+
+We have other templates available that you may want to to check:
+
+- [cra-template-blip-plugin-context][plugin-context-api]
+
 ## File Structure
 
 Assuming your folder is called `blip-plugin-project`.
@@ -53,8 +59,6 @@ Whatever name you choose will replace all occurrences of that string in the proj
 │   ├───📁factory
 │   │   └───api.js
 │   ├───📁hooks
-│   │   ├───store.js
-│   │   ├───useCombinedReducers.js
 │   │   └───useFetch.js
 │   ├───📁pages
 │   │   └───📁Home
@@ -71,24 +75,18 @@ Whatever name you choose will replace all occurrences of that string in the proj
 │   ├───📁services
 │   │   ├───application-service.js
 │   │   └───...
-│   ├───📁store
-│   │   ├───📁actions
-│   │   │   ├───application.js
-│   │   │   └───...
-│   │   ├───📁reducers
-│   │   │   ├───application.js
-│   │   │   └───...
-│   │   ├───connect.js
-│   │   └───index.js
 │   ├───📁utils
 │   │   └───...
 │   ├───App.js
 │   └───index.js
+├───🐳.dockerignore
 ├───⚙️.env
 ├───⚙️.eslintignore
 ├───⚙️.eslintrc
 ├───⚙️.gitignore
 ├───⚙️.prettierrc
+├───🐳Dockerfile
+├───📃LICENSE
 ├───⚙️package.json
 └───⚙️README.md
 ```
@@ -135,11 +133,12 @@ Now just add the plugin to your chatbot and enjoy!
 
 ## More information
 
-[Blip plugin template](https://github.com/axeldouglas/cra-template-blip-plugin/tree/main/template)
+[Blip plugin template](https://github.com/takenet/cra-template-blip-plugin/tree/main/template)
 
 [npm-badge]: https://img.shields.io/npm/v/cra-template-blip-plugin.svg
 [npm-url]: https://www.npmjs.com/package/cra-template-blip-plugin
 [npm-downloads-badge]: https://img.shields.io/npm/dt/cra-template-blip-plugin.svg
 [npm-downloads-url]: https://www.npmjs.com/package/cra-template-blip-plugin
-[license-badge]: https://img.shields.io/github/license/axeldouglas/cra-template-blip-plugin.svg
+[license-badge]: https://img.shields.io/github/license/takenet/cra-template-blip-plugin.svg
 [license-url]: https://opensource.org/licenses/MIT
+[plugin-context-api]: https://github.com/takenet/cra-template-blip-plugin-context

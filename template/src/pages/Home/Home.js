@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import RoutesPath from '../../constants/routes-path';
@@ -15,12 +15,9 @@ const Home = () => {
     const history = useHistory();
     const { t } = useTranslation();
 
-    const handleNavigation = useCallback(
-        (path, params = {}) => {
-            history.push(path, params);
-        },
-        [history]
-    );
+    const handleNavigation = (path, params = {}) => {
+        history.push(path, params);
+    };
 
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
@@ -45,12 +42,12 @@ const Home = () => {
                     data-testid="exemple-one"
                     onClick={() =>
                         handleNavigation(RoutesPath.EXAMPLE_PAGE.PATH, {
-                            type: 'storedData'
+                            type: 'blipData'
                         })
                     }
                 >
                     <bds-icon name="file-txt-1" size="x-small" />
-                    {t('link.storedExemple')}
+                    {t('link.blipDataExample')}
                 </a>
                 <a
                     className="f6 flex items-center blue no-underline underline-hover mt1"
