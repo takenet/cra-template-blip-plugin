@@ -54,7 +54,7 @@ Whatever name you choose will replace all occurrences of that string in the proj
 │   │   ├───⚙️appsettings.json
 │   │   └───index.js
 │   ├───📁constants
-│   │   ├───application-actions.js
+│   │   ├───blip-portal-destinations.js
 │   │   └───...
 │   ├───📁factory
 │   │   └───api.js
