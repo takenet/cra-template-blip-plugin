@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { page } from '../services/analytics';
+import { page } from '../services/analytics-service';
 import RoutesPath from '../constants/routes-path';
 
 const Analytics = ({ children }) => {

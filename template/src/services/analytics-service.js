@@ -1,12 +1,21 @@
 import { IframeMessageProxy } from 'iframe-message-proxy';
 import IMPActions from '../constants/iframe-message-proxy-actions';
 import settings from '../config';
+import { getApplicationDataAsync } from './application-service';
 import { toKebabCase } from '../utils/string';
 
 const TRACK_METHOD = 'createTrack';
 
+let BOT_IDENTIFIER = null;
+
 const createTrackAsync = async (event, payload = {}, callback = () => {}) => {
     const trackEvent = toKebabCase(`${settings.segment.prefix}-${event}`);
+
+    if (!BOT_IDENTIFIER) {
+        const { shortName } = await getApplicationDataAsync();
+        BOT_IDENTIFIER = shortName;
+    }
+    payload.botidentifier = BOT_IDENTIFIER;
 
     await IframeMessageProxy.sendMessage({
         action: IMPActions.SEGMENT,
