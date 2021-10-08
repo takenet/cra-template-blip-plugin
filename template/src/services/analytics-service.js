@@ -7,15 +7,18 @@ import { toKebabCase } from '../utils/string';
 const TRACK_METHOD = 'createTrack';
 
 let BOT_IDENTIFIER = null;
+let BOT_NAME = null;
 
 const createTrackAsync = async (event, payload = {}, callback = () => {}) => {
     const trackEvent = toKebabCase(`${settings.segment.prefix}-${event}`);
 
     if (!BOT_IDENTIFIER) {
-        const { shortName } = await getApplicationDataAsync();
+        const { shortName, name } = await getApplicationDataAsync();
         BOT_IDENTIFIER = shortName;
+        BOT_NAME = name;
     }
-    payload.botidentifier = BOT_IDENTIFIER;
+    payload.botIdentifier = BOT_IDENTIFIER;
+    payload.botName = BOT_NAME;
 
     await IframeMessageProxy.sendMessage({
         action: IMPActions.SEGMENT,
