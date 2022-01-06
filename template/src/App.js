@@ -8,23 +8,19 @@ import { getCurrentLanguageAsync } from './services/application-service';
 import { withLoadingAsync, showToast } from './services/common-service';
 import BlipPortalToastTypes from './constants/blip-portal-toast-types';
 
-import sleep from './utils/sleep';
-
 const DEFAULT_LANGUAGE = 'pt';
-const DELAY_TIME = 600;
 
 const App = () => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        setInitialInfoAsync();
+        getInitialInfoAsync();
         // eslint-disable-next-line
-    }, []);
+	}, []);
 
-    const setInitialInfoAsync = async () => {
+    const getInitialInfoAsync = async () => {
         await withLoadingAsync(async () => {
-            await seti18nLanguageAsync();
-            await sleep(DELAY_TIME);
+            await getLanguageAsync();
 
             showToast({
                 type: BlipPortalToastTypes.SUCCESS,
@@ -33,7 +29,7 @@ const App = () => {
         });
     };
 
-    const seti18nLanguageAsync = async () => {
+    const getLanguageAsync = async () => {
         const language = await getCurrentLanguageAsync();
 
         if (!!language && language !== DEFAULT_LANGUAGE) {

@@ -10,8 +10,8 @@ const Input = ({
     value,
     helperMessage,
     errorMessage,
-    minLength,
-    maxLength,
+    minLength = 0,
+    maxLength = 0,
     danger = false,
     focused = false,
     waitTime = 500,
@@ -20,9 +20,9 @@ const Input = ({
     isTextarea = false,
     errors = {},
     touched = {},
-    onFocus = () => {},
-    onBlur = () => {},
-    onChange = () => {}
+    onFocus,
+    onBlur,
+    onChange
 }) => {
     const blipInputRef = useRef(null);
     const [error, setError] = useState('');
@@ -31,16 +31,16 @@ const Input = ({
     useEffect(() => {
         const { current } = blipInputRef;
         current.addEventListener('bdsChange', handleChange);
-        current.addEventListener('bdsFocus', (e) => onFocus(e));
-        current.addEventListener('bdsOnBlur', (e) => onBlur(e));
+        current.addEventListener('bdsFocus', onFocus);
+        current.addEventListener('bdsOnBlur', onBlur);
 
         return () => {
             current.removeEventListener('bdsChange', handleChange);
-            current.removeEventListener('bdsFocus', (e) => onFocus(e));
-            current.removeEventListener('bdsOnBlur', (e) => onBlur(e));
+            current.removeEventListener('bdsFocus', onFocus);
+            current.removeEventListener('bdsOnBlur', onBlur);
         };
         // eslint-disable-next-line
-    }, []);
+	}, []);
 
     useEffect(() => {
         const { current } = blipInputRef;

@@ -35,7 +35,7 @@ describe('Home page', () => {
 
         userEvent.click(exempleOneLink);
         expect(history.location.pathname).toBe('/example');
-        expect(history.location.state.type).toBe('blipData');
+        expect(history.location.state.type).toBe('storedData');
     });
 
     it('should navigate to exemple page two', () => {
@@ -68,7 +68,7 @@ describe('Home page', () => {
         expect(mockedOpen).toHaveBeenCalledTimes(1);
         expect(mockedOpen).toHaveBeenCalledWith(
             'https://github.com/takenet/cra-template-blip-plugin',
-            'Blank'
+            '_blank'
         );
     });
 

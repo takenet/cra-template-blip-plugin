@@ -13,9 +13,9 @@ const createTrackAsync = async (event, payload = {}, callback = () => {}) => {
     const trackEvent = toKebabCase(`${settings.segment.prefix}-${event}`);
 
     if (!BOT_IDENTIFIER) {
-        const { shortName, name } = await getApplicationDataAsync();
-        BOT_IDENTIFIER = shortName;
-        BOT_NAME = name;
+        const application = await getApplicationDataAsync();
+        BOT_IDENTIFIER = application?.shortName;
+        BOT_NAME = application?.name;
     }
     payload.botIdentifier = BOT_IDENTIFIER;
     payload.botName = BOT_NAME;

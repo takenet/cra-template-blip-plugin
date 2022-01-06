@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import PageHeader from '../../../../components/PageHeader';
 import Button from '../../../../components/Button';
 
-const Header = ({ title, icon, onClick = () => {} }) => {
+const Header = ({ title, icon, onClick }) => {
     const { t } = useTranslation();
 
     const renderOptions = () => (
@@ -31,7 +31,6 @@ const Header = ({ title, icon, onClick = () => {} }) => {
 Header.propTypes = {
     title: PropTypes.string,
     icon: PropTypes.string,
-    onSearch: PropTypes.func,
     onClick: PropTypes.func
 };
 

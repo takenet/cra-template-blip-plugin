@@ -2,15 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PageHeader from '../../../../components/PageHeader';
 
-const Header = ({
-    title,
-    canRefresh = false,
-    onRefresh = () => {},
-    onClick = () => {}
-}) => {
+const Header = ({ title, canRefresh = false, onRefresh, onClick }) => {
     const renderOptions = () => (
         <button
-            type="link"
+            data-testid="refresh-button"
+            type="button"
             className="f4 fw6 db black link dim b--none bg-transparent pointer"
             onClick={onRefresh}
         >
@@ -21,7 +17,7 @@ const Header = ({
     return (
         <PageHeader
             title={title}
-            isBackNavigation={true}
+            isBackNavigation
             relatedOptions={canRefresh && renderOptions()}
             onBackPressed={onClick}
         />
@@ -30,7 +26,6 @@ const Header = ({
 
 Header.propTypes = {
     title: PropTypes.string,
-    active: PropTypes.bool,
     canRefresh: PropTypes.bool,
     onRefresh: PropTypes.func,
     onClick: PropTypes.func

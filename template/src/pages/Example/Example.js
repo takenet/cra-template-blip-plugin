@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 
 import BlipData from './components/BlipData';
@@ -18,17 +18,15 @@ const Example = () => {
         }
     }, [state]);
 
-    const handleNavigation = () => {
+    const handleNavigation = useCallback(() => {
         history.push('/');
-    };
+    }, [history]);
 
-    return example === 'blipData' ? (
+    return example === 'storedData' ? (
         <BlipData onClick={() => handleNavigation()} />
     ) : (
         <SwrFetchData onClick={() => handleNavigation()} />
     );
 };
-
-Example.propTypes = {};
 
 export default Example;

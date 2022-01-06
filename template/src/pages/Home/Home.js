@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import RoutesPath from '../../constants/routes-path';
@@ -15,9 +15,12 @@ const Home = () => {
     const history = useHistory();
     const { t } = useTranslation();
 
-    const handleNavigation = (path, params = {}) => {
-        history.push(path, params);
-    };
+    const handleNavigation = useCallback(
+        (path, params = {}) => {
+            history.push(path, params);
+        },
+        [history]
+    );
 
     return (
         <div className="ph1 ph4-m ph5-ns pb5">
@@ -36,23 +39,23 @@ const Home = () => {
                     </Trans>
                 </p>
                 <h5 className="f5 b mt3 mb2">{t('title.exemples')}</h5>
-                <a
-                    className="f6 flex items-center blue no-underline underline-hover"
-                    href="#0"
+                <span
+                    className="f6 flex items-center blue no-underline underline-hover pointer"
                     data-testid="exemple-one"
+                    aria-hidden="true"
                     onClick={() =>
                         handleNavigation(RoutesPath.EXAMPLE_PAGE.PATH, {
-                            type: 'blipData'
+                            type: 'storedData'
                         })
                     }
                 >
                     <bds-icon name="file-txt-1" size="x-small" />
                     {t('link.blipDataExample')}
-                </a>
-                <a
-                    className="f6 flex items-center blue no-underline underline-hover mt1"
-                    href="#0"
+                </span>
+                <span
+                    className="f6 flex items-center blue no-underline underline-hover mt1 pointer"
                     data-testid="exemple-two"
+                    aria-hidden="true"
                     onClick={() =>
                         handleNavigation(RoutesPath.EXAMPLE_PAGE.PATH, {
                             type: 'swrCall'
@@ -61,7 +64,7 @@ const Home = () => {
                 >
                     <bds-icon name="file-txt-1" size="x-small" />
                     {t('link.swrExemple')}
-                </a>
+                </span>
             </div>
         </div>
     );
