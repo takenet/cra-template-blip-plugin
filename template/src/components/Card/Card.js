@@ -6,33 +6,39 @@ const Card = ({
     title,
     description,
     image,
-    imageUrl = '',
+    imageUrl,
     imageType,
-    btn,
+    btn = {},
     className,
     children,
     cardColor = 'white',
     textAlign = 'tc',
     linkable = false
 }) => {
-    const card_class = classNames({
+    const cardClasses = classNames({
         [`bg-${cardColor}`]: !!cardColor,
         pointer: linkable,
         hoverable: linkable
     });
 
     const renderImage = () => {
-        let image_class = '';
+        let imageClasses = '';
 
         switch (imageType) {
             case 'cover':
-                image_class = classNames('w-100', 'br--top', 'br2');
+                imageClasses = classNames('w-100', 'br--top', 'br2');
                 break;
             case 'circle':
-                image_class = classNames('br-100', 'h3', 'w3', 'mt2', 'mt3-ns');
+                imageClasses = classNames(
+                    'br-100',
+                    'h3',
+                    'w3',
+                    'mt2',
+                    'mt3-ns'
+                );
                 break;
             case 'double-ring':
-                image_class = classNames(
+                imageClasses = classNames(
                     'br-100',
                     'h3',
                     'w3',
@@ -44,28 +50,33 @@ const Card = ({
                 );
                 break;
             case 'rounded-large':
-                image_class = classNames('br4', 'h3', 'w3', 'mt2', 'mt3-ns');
+                imageClasses = classNames('br4', 'h3', 'w3', 'mt2', 'mt3-ns');
                 break;
             case 'rounded':
-                image_class = classNames('br2', 'h3', 'w3', 'mt2', 'mt3-ns');
+                imageClasses = classNames('br2', 'h3', 'w3', 'mt2', 'mt3-ns');
                 break;
             default:
                 // square
-                image_class = classNames('h3', 'w3', 'mt2', 'mt3-ns');
+                imageClasses = classNames('h3', 'w3', 'mt2', 'mt3-ns');
                 break;
         }
 
         return (
             <div className="center">
-                {imageUrl.length ? (
+                {imageUrl?.length ? (
                     <img
-                        data-testid="card-img"
+                        data-testid="card-url-img"
                         src={imageUrl}
-                        className={`db ${image_class}`}
+                        className={`db ${imageClasses}`}
                         alt="card avatar"
                     />
                 ) : (
-                    <div className={`db ${image_class}`}>{image}</div>
+                    <div
+                        data-testid="card-img"
+                        className={`db ${imageClasses}`}
+                    >
+                        {image}
+                    </div>
                 )}
             </div>
         );
@@ -86,32 +97,33 @@ const Card = ({
     );
 
     const renderFooterButton = () => {
-        const btn_props = {
-            bg_color: !!btn.bg_color ? btn.bg_color : 'white',
-            text_color: !!btn.text_color ? btn.text_color : 'blue'
+        const btnProps = {
+            bgColor: !!btn.bgColor ? btn.bgColor : 'white',
+            textColor: !!btn.textColor ? btn.textColor : 'blue'
         };
 
-        const btn_class_default = classNames({
-            [`bg-${btn_props.bg_color}`]: true,
-            [`hover-${btn_props.bg_color}`]: true,
-            [`${btn_props.text_color}`]: true,
-            [`hover-bg-${btn_props.text_color}`]: true
+        const btnClassesDefault = classNames({
+            [`bg-${btnProps.bgColor}`]: true,
+            [`hover-${btnProps.bgColor}`]: true,
+            [`${btnProps.textColor}`]: true,
+            [`hover-bg-${btnProps.textColor}`]: true
         });
 
-        const btn_class_active = classNames({
-            [`bg-${btn_props.text_color}`]: true,
-            [`${btn_props.bg_color}`]: true
+        const btnClassesActive = classNames({
+            [`bg-${btnProps.textColor}`]: true,
+            [`${btnProps.bgColor}`]: true
         });
 
-        const btn_class = classNames(
-            !!btn.active ? btn_class_active : btn_class_default
+        const btnClasses = classNames(
+            !!btn.active ? btnClassesActive : btnClassesDefault
         );
 
         return (
             <div className="w-100 bt bp-bc-medium-wave">
                 <button
                     data-testid="card-btn"
-                    className={`w-100 link pointer tc ph3 pv3 db f6 b bg-animate b--none br3 br--bottom ${btn_class}`}
+                    type="button"
+                    className={`w-100 link pointer tc ph3 pv3 db f6 b bg-animate b--none br3 br--bottom ${btnClasses}`}
                     onClick={!!btn.onClick ? btn.onClick : () => {}}
                 >
                     {!!btn.text && btn.text}
@@ -122,11 +134,11 @@ const Card = ({
 
     return (
         <article
-            className={`w-100 flex flex-column ba b--black-10 br3 shadow-6 animated fade-in ${card_class} ${className}`}
+            className={`w-100 flex flex-column ba b--black-10 br3 shadow-6 animated fade-in ${cardClasses} ${className}`}
         >
             {(!!image || !!imageUrl) && renderImage()}
             {renderBody()}
-            {!!btn && renderFooterButton()}
+            {!!Object.keys(btn)?.length && renderFooterButton()}
         </article>
     );
 };

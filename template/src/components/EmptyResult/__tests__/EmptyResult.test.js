@@ -7,10 +7,9 @@ import EmptyResult from '../EmptyResult';
 describe('Empty result page', () => {
     it('should render correctly', () => {
         render(
-            <EmptyResult
-                title="Nenhum plugin encontrado"
-                description="Favor buscar novamente"
-            />
+            <EmptyResult title="Nenhum plugin encontrado">
+                Favor buscar novamente
+            </EmptyResult>
         );
 
         expect(

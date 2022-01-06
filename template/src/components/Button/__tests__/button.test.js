@@ -6,9 +6,23 @@ import Button from '../Button';
 
 describe('Button component', () => {
     const handleClick = jest.fn();
-    let rtlContainer;
 
-    beforeEach(() => {
+    it('should render with children', () => {
+        render(<Button>Adicionar Plugin</Button>);
+        expect(screen.queryByTestId('bds-button')).toHaveTextContent(
+            'Adicionar Plugin'
+        );
+    });
+
+    it('should handle click event', () => {
+        render(<Button text="Adicionar Plugin" onClick={handleClick} />);
+
+        const backButtonNode = screen.queryByTestId('bds-button');
+        fireEvent.click(backButtonNode);
+        expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should matches with snapshot', () => {
         const { container } = render(
             <Button
                 text="Adicionar Plugin"
@@ -19,23 +33,6 @@ describe('Button component', () => {
                 onClick={handleClick}
             />
         );
-        rtlContainer = container;
-    });
-
-    it('should render correctly', () => {
-        expect(screen.queryByTestId('bds-button')).toBeInTheDocument();
-        expect(screen.queryByTestId('bds-button')).toHaveTextContent(
-            'Adicionar Plugin'
-        );
-    });
-
-    it('should handle click event', () => {
-        const backButtonNode = screen.queryByTestId('bds-button');
-        fireEvent.click(backButtonNode);
-        expect(handleClick).toHaveBeenCalledTimes(1);
-    });
-
-    it('should matches with snapshot', () => {
-        expect(rtlContainer.firstChild).toMatchSnapshot();
+        expect(container.firstChild).toMatchSnapshot();
     });
 });

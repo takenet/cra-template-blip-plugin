@@ -14,7 +14,7 @@ describe('Page header component', () => {
             <PageHeader
                 title="Plugins"
                 icon="plugin"
-                isInformative={true}
+                isInformative
                 helpText="Tooltip Text Info"
                 relatedOptions={mockRenderOptions()}
                 isBackNavigation={false}
@@ -41,7 +41,7 @@ describe('Page header component', () => {
             <PageHeader
                 title="Plugins"
                 relatedOptions={mockRenderOptions()}
-                isBackNavigation={true}
+                isBackNavigation
                 onBackPressed={handleClick}
             />
         );
@@ -55,7 +55,7 @@ describe('Page header component', () => {
             <PageHeader
                 title="Plugins"
                 icon="plugin"
-                isInformative={true}
+                isInformative
                 helpText="Tooltip Text Info"
                 relatedOptions={mockRenderOptions()}
                 isBackNavigation={false}

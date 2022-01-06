@@ -1,47 +1,61 @@
 {
-    "extends": [
-        "airbnb-base",
-        "plugin:prettier/recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "react-app"
-    ],
-    "parser": "babel-eslint",
-    "env": {
-        "es6": true,
-        "jest": true,
-        "browser": true,
-        "node": true
-    },
-    "rules": {
-        "no-console": "warn",
-        "no-var": "error",
-        "no-extra-boolean-cast": "off",
-        "no-underscore-dangle": "off",
-        "no-param-reassign": "off",
-        "no-plusplus": "off",
-        "camelcase": "off",
-        "class-methods-use-this": "off",
-        "radix": "off",
-        "consistent-return": "off",
-        "import/prefer-default-export": "off",
-        "semi": ["error", "always"],
-        "comma-dangle": ["error", "never"],
-        "curly": ["error", "all"],
-        "indent": ["error", 4, { "SwitchCase": 1 }],
-        "prettier/prettier": [
-            "error",
-            {
-                "endOfLine": "auto"
-            }
-        ]
-    },
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"],
-                "paths": ["src"]
-            }
-        }
-    }
+	"env": {
+		"browser": true,
+		"jest": true,
+		"node": true,
+		"es2021": true
+	},
+	"extends": ["airbnb", "prettier"],
+	"ignorePatterns": [],
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"sourceType": "module",
+		"requireConfigFile": false,
+		"ecmaVersion": "latest",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"babelOptions": {
+			"presets": ["@babel/preset-env", "@babel/preset-react"]
+		}
+	},
+	"plugins": ["react", "prettier", "import", "jsx-a11y", "react-hooks"],
+	"rules": {
+		"no-console": "warn",
+		"no-var": "error",
+		"no-extra-boolean-cast": "off",
+		"no-underscore-dangle": "off",
+		"no-plusplus": "off",
+		"no-use-before-define": "off",
+		"no-param-reassign": ["error", { "props": false }],
+		"radix": "off",
+		"consistent-return": "off",
+		"import/prefer-default-export": "off",
+		"semi": ["error", "always"],
+		"comma-dangle": ["error", "never"],
+		"curly": ["error", "all"],
+		"indent": ["error", 4, { "SwitchCase": 1 }],
+		"camelcase": [
+			"error",
+			{
+				"properties": "always",
+				"ignoreImports": true,
+				"ignoreDestructuring": true
+			}
+		],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/react-in-jsx-scope": "off",
+		"react/function-component-definition": "off",
+		"react/forbid-prop-types": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/require-default-props": "off" // removed because of tests
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"],
+				"paths": ["src"]
+			}
+		}
+	}
 }

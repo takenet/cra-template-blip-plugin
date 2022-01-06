@@ -1,9 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-const COLOR_NEUTRAL_DARK_ROOFTOP = '#505F79';
-const COLOR_NEUTRAL_MEDIUM_CLOUD = '#8CA0B3';
-
 const PageHeader = ({
     title,
     icon,
@@ -14,43 +11,42 @@ const PageHeader = ({
     relatedOptions
 }) => {
     const renderInfoTitle = () => (
-        <div className="pointer" data-testid="page-header-tooltip">
+        <div
+            className="help pt1 bp-c-neutral-medium-cloud"
+            data-testid="page-header-tooltip"
+        >
             <bds-tooltip tooltip-text={helpText} position="right-center">
-                <bds-icon
-                    name="info"
-                    theme="solid"
-                    color={COLOR_NEUTRAL_MEDIUM_CLOUD}
-                />
+                <bds-icon name="info" theme="solid" size="small" />
             </bds-tooltip>
         </div>
     );
 
     return (
-        <div className="flex flex-row items-center-ns justify-between w-100 pv3 mt2 bb bp-bc-neutral-medium-wave">
+        <div className="flex flex-column flex-row-ns items-center-ns justify-between w-100 mt3 pt2 pb3 bb bp-bc-neutral-medium-wave">
             <div className="flex items-center">
                 {isBackNavigation && (
                     <div
-                        className="pointer mr1"
+                        className="pointer mr1 bp-c-neutral-dark-rooftop"
                         onClick={onBackPressed}
                         data-testid="page-header-back-icon"
+                        aria-hidden="true"
                     >
-                        <bds-icon
-                            name="arrow-left"
-                            color={COLOR_NEUTRAL_DARK_ROOFTOP}
-                        />
+                        <bds-icon name="arrow-left" />
                     </div>
                 )}
 
                 {!!icon && (
-                    <div data-testid="page-header-icon">
-                        <bds-icon
-                            name={icon}
-                            color={COLOR_NEUTRAL_DARK_ROOFTOP}
-                        />
+                    <div
+                        className="bp-c-neutral-dark-rooftop"
+                        data-testid="page-header-icon"
+                    >
+                        <bds-icon name={icon} />
                     </div>
                 )}
 
-                <h2 className="f3 ml2 mr1 bp-c-neutral-dark-city">{title}</h2>
+                <h2 className="f3 ma0 ml2 mr1 bp-c-neutral-dark-city">
+                    {title}
+                </h2>
 
                 {isInformative && !!helpText && renderInfoTitle()}
             </div>

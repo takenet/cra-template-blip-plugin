@@ -36,12 +36,4 @@ const userHasPermissionAsync = async (
     return response;
 };
 
-const getUserPermissionsAsync = async () => {
-    const { response } = await IframeMessageProxy.sendMessage({
-        action: IMPContainer.Actions.GET_PERMISSIONS_OBJECT
-    });
-
-    return response;
-};
-
-export { getLoggedUserAsync, userHasPermissionAsync, getUserPermissionsAsync };
+export { getLoggedUserAsync, userHasPermissionAsync };

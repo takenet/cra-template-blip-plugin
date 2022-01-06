@@ -5,12 +5,12 @@ const Button = ({
     variant,
     icon,
     text,
-    arrow,
-    disabled,
+    arrow = false,
+    disabled = false,
     children,
     ariaLabel = 'bds-button',
     dataTestId = 'bds-button',
-    onClick = () => {}
+    onClick
 }) => (
     <bds-button
         data-testid={dataTestId}
