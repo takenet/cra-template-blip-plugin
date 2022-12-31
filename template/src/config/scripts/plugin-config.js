@@ -111,6 +111,36 @@ function sonarProperties() {
 	}
 }
 
+/**
+ * Pipeline YAML
+ * rename project name in pipeline yaml file
+ */
+function renameProjectYML() {
+    const ymlFile = './pipeline.yml';
+
+    try {
+        if (fs.existsSync(`./${ymlFile}`)) {
+            const chartsRegex = new RegExp(`${CURRENT_NAME}`, 'g');
+        
+            const options = {
+                files: ymlFile,
+                from: chartsRegex,
+                to: NEW_NAME || CURRENT_NAME
+            };
+        
+            const results = replace.sync(options);
+            console.log(`Replaced ${results.length} file(s).`);
+        } else {
+            console.warn('Warning: "pipeline.yml" not exists.');
+        }
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
+    }
+}
+
+renameProjectYML();
+
 // deep renaming (charts path and files)
 chartsRename();
 

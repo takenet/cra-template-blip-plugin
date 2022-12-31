@@ -1,0 +1,43 @@
+trigger:
+- develop
+- main
+
+resources:
+  repositories:   
+  - repository: templates
+    type: git
+    name: Operações/template-take-blip
+    ref: refs/tags/v1.4.24
+  
+variables: 
+ - group: PLUGIN_NAME-config
+ - name: team
+   value: cs-community
+ - name: skipDecorator
+   value: true
+
+extends:
+  template: template-pipeline.yml@templates    
+  parameters:    
+    packagename: PLUGIN_NAME    
+    type: javascript
+    to: kubernetes
+    nodeVersion: '14.x'
+    npmCmds:
+      - 'npm cache clean --force'
+      - 'npm install'
+      - 'npm run test:coverage'
+      - 'npm run build'
+    stages:
+    - name: staging
+      condition: and(or(ne(variables['build.sourceBranchName'], 'master'), ne(variables['build.sourceBranchName'], 'main')),ne(variables['Build.Reason'], 'PullRequest'))
+      dependsOn: build
+      environment: staging
+      ServiceConnection: "AKS BOT BETA-STAGING-$(System.TeamProject)"
+      variables: []
+    - name: production
+      condition: and(or(eq(variables['build.sourceBranchName'], 'master'), eq(variables['build.sourceBranchName'], 'main')),ne(variables['Build.Reason'], 'PullRequest'))
+      dependsOn: staging
+      environment: production
+      variables: []
+      ServiceConnection: "AKS BOT PROD-$(System.TeamProject)"
